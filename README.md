@@ -1,4 +1,17 @@
-## Tablas de transacciones
+## Tablas de transacciones (Generan movimiento en OINM)
+
+|Tabla | Nombre                  |Transtype                             | Tabla de filas |
+|------|-------------------------|--------------------------------------|------------------------------------|
+|OINM  |Diario de almacen        | INM **58** - Inventory match         |                                    |
+|OINV  |Facturas deudores        |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
+|ORIN  |Anulacion de facturas    |RIN **14** - Revert Invoices          |RIN1 anulacion de facturas linea    |
+|OPDN  |Entrada de mercancías AP |PDN **20** - Purchase Delivery Notes  |PDN1 pedido de entrada de mercancias|
+|OIGN  |Entrada de mercancías    |IGN **59** - Inventory General Entry  |IGN1                                |
+|OIGE  |Salida de mercancías     |IGE **60** - Inventory General Exit   |IGE1 Entrada de mercancias lineas   |
+|OWTR  |Traslado de stock        |WTR **67** - Warehouses Transfers     |WTR1 traslado de stock              |
+|OIPF  |Costos de importación    |IPF 69 - Import file                  |IPF1 Precios de entrega             |
+
+
 * __OINM Whse Journal -	Diario de almacen__ (stock movement table)
     Transtype (object type):    
       INM 58 - Inventory match
@@ -15,20 +28,17 @@
     *  69	Landed Costs  
     *  162	Inventory Valuation  
 
-* __OINV (oInvoice) Facturas deudores__
-
+* __OINV (oInvoice) (ventas) Facturas deudores__
     Transtype (object type):  
         INV **13** - Invoices
     * __INV1 Facturas deudores - lineas__
 
 * __ORIN (oCreditNote) Nota de crédito de clientes (Anulacion de facturas)__ 
-
       Transtype (object type):
         RIN **14** - Revert Invoices
     * __RIN1 Anulacion de facturas Linea__  
 
 * __OPDN (oPurchaseDeliveryNotes)  Entrada de mercancías__ 
-
       Transtype (object type):  
          PDN **20** - Purchase Delivery Notes
      * __PDN1	Pedido de entrada de mercancías - Filas__  
@@ -55,7 +65,6 @@
       IGE **60** - Inventory General Exit
     * __IGE1	Salida de mercancias - Lineas__
 
-
 * __OWTR	Traslado de stocks__  
     You use this function to transfer inventory from one warehouse to another.
 
@@ -66,9 +75,13 @@
 *  __OIPF	Costos de importación__  
     Transtype (object type):
         IPF 69 - Import file
-    *  __IPF1	Precios de entrega - Líneas
+    *  __IPF1	Precios de entrega - Líneas__
 
 
+## otras tablas
+
+*  __OPCH  Facturas de proveedores__  
+   * PCH1  Factura de acreedor linea
 
 ## Tablas maestras
 
@@ -116,5 +129,5 @@ SELECT * FROM ORCT
 *  __OA :  Salidas de materiales__
 *  __DI :  Precios de entrega para costos__
 *  __RF :  Mall Ventura__
-*  __EP :  Entrada__
+*  __EP :  Entrada de materiales__
 
