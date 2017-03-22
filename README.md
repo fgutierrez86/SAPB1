@@ -1,38 +1,38 @@
 ## Tablas
-### OINM	Diario de almacén  
+* OINM	Diario de almacén  
 
  Tipos de TransType que existen en la bd Natura
 
-- ** 13 	A/R Invoice **
-- ** 14 	A/R Credit Memo **
-- ** 20 	Goods Receipt PO **
-- ** 59 	Goods Receipt **  A goods receipt in the Warehouse Management system (WMS) 
+* __13 	A/R Invoice__
+* __14 	A/R Credit Memo__
+* __20 	Goods Receipt PO__
+* __59 	Goods Receipt__  A goods receipt in the Warehouse Management system (WMS) 
 	is the physical inbound movement of goods or materials into the warehouse. 
 	It is a goods movement that is used to post goods received from external 
 	vendors or from in-plant production. All goods receipts result in an increase 
 	of stock in the warehouse.
-- ** 60 	 Goods Issue **    
+* __60 	 Goods Issue__
     Salida de productos del warehouse (almacen)
-- ** 67 	Inventory Transfers**  
+* __67 	Inventory Transfers__
     You use this function to transfer inventory from one warehouse to another.
-- ** 162	Inventory Valuation **
-- ** 69	Landed Costs **
+* __162	Inventory Valuation__
+* __69	Landed Costs__
 
 
-### OIGE	Salida de mercancías
-### IGE1	Salida de mercancías - Líneas
+* OIGE	Salida de mercancías
+* IGE1	Salida de mercancías - Líneas
 
 
-### OJDT Asiento
-### JDT1 Asiento Fila
+* OJDT Asiento
+* JDT1 Asiento Fila
 
-### OINV Facturas deudores
-### INV1 Facturas deudores - lineas
+* OINV Facturas deudores
+* INV1 Facturas deudores - lineas
 
 
 ## Queries
 
-### Libro Ventas
+* Libro Ventas
 
 ```SQL
     Select 
