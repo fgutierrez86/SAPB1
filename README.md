@@ -12,9 +12,9 @@
 |[OWTR](#owtr) |Traslado de stock         |WTR **67** - Warehouses Transfers     |WTR1 traslado de stock              |
 |[OIPF](#oipf) |Costos de importación     |IPF 69 - Import file                  |IPF1 Precios de entrega             |
 
-[Otras tablas](#otras-tablas) |  
-[Tablas maestras](#tablas-maestras) |  
-[Queries](#queries) |  
+[Otras tablas](#otras-tablas) | 
+[Tablas maestras](#tablas-maestras) |
+[Queries](#queries) |
 [Tipos de documentos](#tipos-de-documentos) |
 
 
