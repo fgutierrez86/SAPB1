@@ -1,11 +1,14 @@
 ## Tablas
-* __OINM	Diario de almacen__ 
+* __OINM	Diario de almacen__ (stock movement table)
+    Transtype (object type):    
+      INM 58 - Inventory match
 
-    Tipos de TransType que existen en la bd Natura
+    Table field: Transtype  
+       Values:
 
-    *  __13 	A/R Invoice__
-    *  __14 	A/R Credit Memo__
-    *  __20 	Goods Receipt PO__
+    *  __13 	A/R Invoice__  
+    *  __14 	A/R Credit Memo__  
+    *  __20 	Goods Receipt PO__  
     *  __59     Goods Receipt__  
              A goods receipt in the Warehouse Management system (WMS) 
              is the physical inbound movement of goods or materials into the warehouse. 
@@ -17,20 +20,26 @@
              With a goods issue posting, you reduce the stock in the warehouse. 
              You can use a goods issue to indicate goods deliveries to your customers.
              Salida de productos del warehouse (almacen)
-    * __67 	Inventory Transfers__
+    * __67 	Inventory Transfers__  
             You use this function to transfer inventory from one warehouse to another.
-    * __162	Inventory Valuation__
-    * __69	Landed Costs__
+    * __162	Inventory Valuation__  
+    * __69	Landed Costs__  
 
 
 * __OIGE	Salida de mercancias__
+    Transtype (object type):  
+      IGE 60 - Inventory General Exit
 * __IGE1	Salida de mercancias - Lineas__
 
 
 * __OJDT Asiento__
+    Transtype (object type):  
+      JDT 30 - Journal Transactions
 * __JDT1 Asiento Fila__
 
 * __OINV Facturas deudores__
+    Transtype (object type):  
+        INV 13 - Invoices
 * __INV1 Facturas deudores - lineas__
 
 
