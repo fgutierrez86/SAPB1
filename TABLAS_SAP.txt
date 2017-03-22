@@ -1,0 +1,1149 @@
+Get Started
+Solutions
+SupportTrainingCommunity
+Developer
+Partner
+About
+Community / Archives / Discussions Archive / SAP Business One (Español) / Tablas y Transacciones
+Archived discussions are read-only. Learn more about SAP Q&A
+
+Tablas y Transacciones
+Hola estoy realizando un trabajo escolar referente a la implementacion
+de B1, en el trabajo debemos mencionar las tablas y las transacciones
+del mismo, he encontrado toda esta informacion para SAP/R3 sin embargo
+para B1 no encuentro nada, alguien tiene esta informacion.
+
+Gracias
+
+ 
+ Jose Angel Fernandez
+July 08, 2015 at 19:11 PM
+ 7 Likes
+
+Not what you were looking for? View more on this topic or Ask a question
+15 replies
+
+
+Guest replied February 29, 2012 at 14:30 PM
+Hola...
+
+Imagino que no tienes acceso a un computador con un cliente SAP Business
+One instalado...
+
+Si lo tuvieses podrías explorar en profundidad el tema.., tanto a través
+de algunas tablas en particular como a través de SDK (una ayuda que te
+provee información de las tablas y sus estructuras).
+
+En cuanto a las transacciones en SAP Business One, tienes por cada
+módulo distintas transacciones, los módulos son GESTIÓN, FINANZAS,
+OPORTUNIDAD DE VENTAS, VENTAS, COMPRAS, MRP, PRODUCCION, RECURSOS
+HUMANOS, INVENTARIO, SOCIOS DE NEGOCIOS, SERVICIOS, GESTIÓN DE BANCOS e
+INFORMES.
+
+Las transacciones más recurrentes se presentan en Ventas, Compras e
+Inventario, y son:
+
+VENTAS
+
+Oferta de Ventas (Cotización)
+
+Pedido de Cliente (Orden de Ventas)
+
+Entrega
+
+Solicitud de Anticipo Deudores
+
+Factura de Anticipo Deudores
+
+Devolución (Ventas)
+
+Factura de Deudores
+
+Nota de Crédito Deudores
+
+COMPRAS
+
+Orden de Compra (Pedido)
+
+Entrada de Mercaderías OP
+
+Solicitud de Anticipo Acreedores
+
+Factura de Anticipo Acreedores
+
+Devolución (Compras)
+
+Factura de Acreedores
+
+Nota de Crédito Acreedores
+
+INVENTARIO
+
+Entrada de Mercaderías (Ajuste de Inventario)
+
+Salida de Mercaderías (Ajuste de Inventario)
+
+Transferencia de Stock (Traslado entre Almacenes)
+
+Las tablas te las adjunto en el siguiente post
+
+Espero te sea de ayuda, y contribuya a tu trabajo de investigación
+
+Saludos Cordiales,
+
+0 likes
+
+Guest replied February 29, 2012 at 14:30 PM
+Hola...
+
+Imagino que no tienes acceso a un computador con un cliente SAP Business
+One instalado...
+
+Si lo tuvieses podrías explorar en profundidad el tema.., tanto a través
+de algunas tablas en particular como a través de SDK (una ayuda que te
+provee información de las tablas y sus estructuras).
+
+En cuanto a las transacciones en SAP Business One, tienes por cada
+módulo distintas transacciones, los módulos son GESTIÓN, FINANZAS,
+OPORTUNIDAD DE VENTAS, VENTAS, COMPRAS, MRP, PRODUCCION, RECURSOS
+HUMANOS, INVENTARIO, SOCIOS DE NEGOCIOS, SERVICIOS, GESTIÓN DE BANCOS e
+INFORMES.
+
+Las transacciones más recurrentes se presentan en Ventas, Compras e
+Inventario, y son:
+
+VENTAS
+
+Oferta de Ventas (Cotización)
+
+Pedido de Cliente (Orden de Ventas)
+
+Entrega
+
+Solicitud de Anticipo Deudores
+
+Factura de Anticipo Deudores
+
+Devolución (Ventas)
+
+Factura de Deudores
+
+Nota de Crédito Deudores
+
+COMPRAS
+
+Orden de Compra (Pedido)
+
+Entrada de Mercaderías OP
+
+Solicitud de Anticipo Acreedores
+
+Factura de Anticipo Acreedores
+
+Devolución (Compras)
+
+Factura de Acreedores
+
+Nota de Crédito Acreedores
+
+INVENTARIO
+
+Entrada de Mercaderías (Ajuste de Inventario)
+
+Salida de Mercaderías (Ajuste de Inventario)
+
+Transferencia de Stock (Traslado entre Almacenes)
+
+Las tablas te las adjunto en el siguiente post
+
+Espero te sea de ayuda, y contribuya a tu trabajo de investigación
+
+Saludos Cordiales,
+
+1 likes
+
+Guest replied February 29, 2012 at 14:30 PM
+Hola nuevamente...las Tablas son:
+
+Nombre	Descripción
+OTOB	1099 Balance apertura
+TNN1	1099 Casillas
+OCHF	312
+RPC9	Abono acreedores: Documentos base
+RPC10	Abono acreedores: Estructura fila
+RPC1	Abono de acreedor - Líneas
+RPC6	Abono de acreedor - Plazos
+RIN1	Abono de deudor - Líneas
+RIN6	Abono de deudor - Plazos
+RIN9	Abono deudores: Documentos base
+RIN10	Abono deudores: Estructura fila
+OPVL	Acreedor - Pelecard
+ASC5	Actividades de llamada de servicio - Historial
+SCL5	Actividades de llamada de servicio
+OARI	Add-on - Definiciones de sociedad
+ARI1	Add-on
+OADF	Address Formats
+AADM	Administración: Log
+ITW1	Alarma de recuento de artículos
+AWHS	Almacenes - Historial
+OWHS	Almacenes
+WHT3	Ámbito de valores
+ADO11	Ampliación de pagos efectuados
+FRC1	Ampliar categorías para informe financiero
+OATC	Anexos
+ATC1	Anexos: Filas
+DPI11	Anticipo cuenta deudor: Anticipos efectuados
+DPO10	Anticipo de acreedores - Estructura de fila
+DPO1	Anticipo de acreedores - Filas
+DPO4	Anticipo de acreedores - Importe del impuesto por documento
+DPO2	Anticipo de acreedores: Portes - Filas
+DPO3	Anticipo de acreedores: Portes
+ODPI	Anticipo de clientes
+DPI10	Anticipo de deudores - Estructura de fila
+DPI1	Anticipo de deudores - Filas
+DPI4	Anticipo de deudores - Importe del impuesto por documento
+DPI6	Anticipo de deudores - Plazos
+DPI5	Anticipo de deudores - Retención de impuestos
+DPI2	Anticipo de deudores: Fila - Portes
+DPI3	Anticipo de deudores: Portes
+ODPO	Anticipo de proveedores
+DPO5	Anticipo de proveedores: Retención de impuestos
+DPI9	Anticipo, entrante - Documentos base
+DPO9	Anticipo, saliente - Documentos base
+DPO6	Anticipo: Plazos
+CPV8	Anulación de factura de corrección acreedores: Artículos en paquete
+CPV4	Anulación de factura de corrección de acreedores - Importe del impuesto por documento
+CPV5	Anulación de factura de corrección de acreedores - Retención de impuestos
+OCPV	Anulación de factura de corrección de acreedores
+CSV1	Anulación de factura de corrección de deudores - Filas
+CSV5	Anulación de factura de corrección de deudores - Retención de impuestos
+CSV2	Anulación de factura de corrección de deudores: Portes
+CSV3	Anulación de factura de corrección de deudores: Portes
+CSV7	Anulación de factura de corrección deudores: Paquetes de entrega
+OCSV	Anulación de factura de deudores de corrección
+CPV1	Anulación de la factura de acreedores de corrección: Filas
+CSV8	Anulación de la factura de corrección deudores: Artículos en paquete
+CSV9	Anulación de la factura de corrección deudores: Documentos base
+CSV10	Anulación de la factura de corrección deudores: Estructura de fila
+CSV12	Anulación de la factura de corrección deudores: Extensión de impuestos
+OUPT	Árbol de autorización de usuario
+UPT1	Árbol de autorizaciones de usuario - Autorización ampliada
+OITT	Árbol de productos
+AITT	Árbol producto: Historial
+MRV1	Array de información de revalorización de inventario
+AIT1	Artículo - Precios - Historial
+AITW	Artículos - Almacén: Historial
+AITM	Artículos - Historial
+OITM	Artículos  --- MAS 
+OALI	Artículos alternativos 2
+DPO8	Artículos en paquete - Anticipo de acreedores
+DPI8	Artículos en paquete - Anticipo de deudores
+DRF8	Artículos en paquete - Documento preliminar
+DLN8	Artículos en paquete - Entrega
+CIN8	Artículos en paquete - Factura de corrección
+ADO8	Artículos en paquete - Historial
+RPC8	Artículos en paquete - Nota de crédito de acreedores
+RIN8	Artículos en paquete - Nota de crédito de deudores
+POR8	Artículos en paquete - Pedido
+IGE8	Artículos en paquete - Salida de mercancías
+IWZ3	Artículos última fecha reval.
+OITW	Artículos: Almacén
+ITM1	Artículos: Precios
+OJDT	Asiento
+JDT1	Asiento: Filas
+OQWZ	Asistente de consulta
+OPWZ	Asistente de pago
+PWZ4	Asistente de pagos - Filas 4
+PWZ2	Asistente de pagos: Línea 2
+PWZ3	Asistente de pagos: Líneas 3
+PWZ5	Asistente de pagos: Líneas 5
+OEJB	Asistente ejecuta detalles p.ERV-JAb
+OIWZ	Asistente inflación
+ODWZ	Asistente reclamación
+DWZ1	Asistente reclamaciones Array1: Filtro SN
+OTPA	Atributos de parámetros fiscales
+TPS1	Atributos de parámetros fiscales
+OSTA	Autoridades de impuestos sobre ventas
+HEM5	Autorización de propiedad de datos de empleado
+OBOT	Bill Of Exchang Transaction
+DRF1	Borrador - Líneas
+DRF3	Borrador: Portes
+DRF6	Borradores de documento - Plazos
+ACR5	BP Payment Dates
+CRD5	BP Payment Dates
+ACR2	Bussiness Partners - Payment Methods-History
+CRD2	Bussiness Partners - Payment Methods
+OBNH	Cabecera del estracto bancario
+ORCN	Cadenas de comercio al por menor
+OJPE	Calendario de era local
+TCD1	Campos clave para determinación
+QWZ2	Campos de consulta
+QWZ3	Campos de consulta
+CUMF	Carpeta
+BOX2	Casilla de definición: Cuentas
+BOX3	Casilla de definición: Elección
+OACG	Categoría de cuenta
+OACP	Categoría de período
+OTNC	Categoría de transacción
+OBOC	Categoría del código de la operación bancaria externa
+ONFT	Categoría fiscal de Nota Fiscal (Brasil)
+OFRC	Categorías de informes financieros
+OASC	Categorías de segmentación de cuentas
+OOFR	Causas del defecto
+OPRC	Centro de beneficio
+OCFP	CFOP para Nota fiscal
+OCYC	Ciclo
+CCPD	Cierre del período
+OSTT	Clase de autoridades de impuestos sobre ventas
+OCLT	Clases de actividad
+OENC	Clases de codificación
+OSHP	Clases de entrega
+OHED	Clases de formación
+OSCT	Clases de llamada de servicio
+OPKG	Clases paquete
+ODOR	Clientes dudosos
+OCNA	Código CNAE
+OTSC	Código CST de nota fiscal
+BOC1	Código de operación bancaria externa: Líneas
+ABT1	Código interno de operación bancaria: Cuentas - Log
+ONCM	Código NCM
+ABO1	Código operación banco externo: Líneas - Log
+ABOC	Código operación banco externo: Log
+ODSC	Códigos bancarios
+OBCA	Códigos de asignación de gastos bancarios
+OIDX	Códigos de CPI
+OCRN	Códigos de moneda
+OPRJ	Códigos de proyecto
+OTRC	Códigos de registro en el diario
+BTC1	Códigos internos de operación bancaria - Cuentas
+OBTC	Códigos internos de operación bancaria
+ABTC	Códigos internos de operación bancaria: Log
+OQUE	Cola
+TFC1	Combinación de clase de impuestos: Filas
+OTFC	Combinación del tipo fiscal
+OCMT	Competidores
+OCNT	Condados
+OCTG	Condiciones de pago
+PYD1	Condiciones de pago permitidas en la ejeccuión de pago
+OBDC	Configuración B1i DI
+UQR1	Consultas
+SQR1	Consultas sistema
+ORCR	Contabilizaciones periódicas
+RCR1	Contabilizaciones periódicas: Líneas
+CTR1	Contrato de servicios - Partidas
+OCTR	Contratos de servicio
+OIPF	Costos de importación
+CCRC	Crear sociedad nueva
+DGP2	Criterios selección ampliados
+CRD3	Cuenta asociada SN
+AACT	Cuenta de mayor - Historial
+ACR3	Cuentas asociadas de socio de negocios - Historial
+ACRB	Cuentas bancarias de socio de negocios - Historial
+DSC1	Cuentas de banco propio
+OACT	Cuentas de mayor
+CHD1	Cheque para borrador de pago: Líneas
+OCHD	Cheques p.pago
+OCHO	Cheques para el pago
+ACHO	Cheques para pago - Historial
+ACH1	Cheques para pago - Líneas - Historial
+CHO1	Cheques para pago - Líneas
+CHO2	Cheques para pago: Imprimir status
+CPI5	Datos de retención de impuestos
+RIN5	Datos de retención de impuestos: Nota de crédito de deudores
+FML1	Declaración del parámetro de la fórmula de impuestos
+OBOX	Definición casilla
+BOX1	Definición casilla: Filas
+WHT2	Definición de retención de impuestos - Filas2
+OVTG	Definición del impuesto
+VTG1	Definición del impuesto
+WHT1	Definición del impuesto
+OPFT	Definiciones de portafolio
+OEXD	Definir porte
+OUDP	Departamentos
+DPS1	Depósito - Filas
+ODPS	Depósito
+ODPT	Depósito postdatado
+CDC1	Descuento por pronto pago - Filas
+OCDC	Descuento por pronto pago
+ASC3	Desplazamiento de llamada de servicio/Gastos de trabajo - Historial
+ASC4	Desplazamiento de llamada de servicio/Gastos de trabajo - Historial
+SCL3	Desplazamiento de llamada de servicio/Gastos de trabajo
+OEJD	Detalles de la sociedad p.ERV-JAb
+OTCD	Determinación de indicador de impuestos
+TCD3	Determinación de indicador de impuestos
+TCD4	Determinación de indicador de retención
+RDN2	Devolución - Porte - Filas
+RDN3	Devolución - Porte
+RPD5	Devolución de mercancías - Datos de retención de impuestos
+RPD4	Devolución de mercancías - Importe del impuesto por documento
+RPD2	Devolución de mercancías - Porte - Filas
+ORPD	Devolución de mercancías
+RPD12	Devolución de mercancías: Ampliación de plazo de pago de impuesto
+RPD3	Devolución de mercancías: Porte
+RPD8	Devolución: Artículos en paquete
+RDN12	Devoluciones - Ampliación de plazo de pago de impuesto
+RDN4	Devoluciones - Importe del impuesto por documento
+RDN1	Devoluciones - Líneas
+RDN6	Devoluciones - Plazos
+ORDN	Devoluciones
+RDN8	Devoluciones: Artículos en paquete
+RDN9	Devoluciones: Detalles documentos base
+RPD9	Devoluciones: Documentos base
+RDN10	Devoluciones: Estructura fila
+RPD10	Devoluciones: Estructura fila
+RPD1	Devoluciones: Filas
+RPD7	Devoluciones: Paquetes de entrega
+RPD6	Devoluciones: Plazos
+RDN5	Devoluciones: Retención de impuestos
+OINM	Diario de almacén   --- MAS
+ORTM	Diferencias de cambio
+RTM1	Diferencias de tipo de cambio - Filas
+ACR1	Direcciones de socios de negocios - Historial
+RDOC	Documento
+PDF3	Documento preliminar de pago - Documentos de tarjeta
+PDF7	Documento preliminar de pago - Importe del impuesto por documento
+DRF10	Documento preliminar: Estructura filas
+DRF12	Documento preliminar: Extensión de impuestos
+BTF1	Documento preliminar: Líneas
+ADO4	Documentos - Impuesto - Historial
+WDD1	Documentos a autorizar: Autorizadores
+WDD2	Documentos a autorizar: Condiciones
+CPV9	Documentos base: Factura acreedores
+PCH9	Documentos base: Factura acreedores
+OWDD	Documentos de confirmación
+SCL4	Documentos de gastos
+OTRX	Documentos de transformación
+DRF4	Documentos preliminares - Impuesto
+ODRF	Documentos preliminares
+TXD1	Documentos preliminares de factura de impuestos - Filas
+OTXD	Documentos preliminares de la factura de impuestos
+PDF6	Documentos preliminares de pago - Retención de impuestos - Filas
+DRF9	Documentos preliminares: Detalles doc.base
+DRF5	Documentos preliminares: Retención de impuestos
+DUT1	Dunning Term Array1
+DWZ2	Dunning Wizard Array 2-Invoice Filter
+BOE1	Efecto para pago - Líneas
+OBOE	Efecto para pagos
+OPYD	Ejecución de pago
+RITM	Elemento de informe
+QUE2	Elementos cola
+OSLP	Empleado del departamento de ventas
+OHEM	Empleados
+HEM4	Empleo anterior
+IGN9	Entrada de mercancías - Documentos base
+IGN10	Entrada de mercancías - Estructura de fila
+IGN4	Entrada de mercancías - Importe del impuesto por documento
+IGN7	Entrada de mercancías - Paquetes de entrega
+OIGN	Entrada de mercancías
+PDN12	Entrada de mercancías del pedido: Extensión de impuestos
+OPDN	Entrada de mercancías OP
+PDN3	Entrada de mercancías pedido: Portes
+IGN8	Entrada de mercancías: Artículos en el paquete
+IGN12	Entrada de mercancías: Extensión de impuestos
+IGN1	Entrada de mercancías: Líneas
+IGN6	Entrada de mercancías: Plazos
+IGN2	Entrada de mercancías: Portes - Filas
+IGN5	Entrada de mercancías: Retención de impuestos
+ORCT	Entrada de pagos
+OBTF	Entrada documentos diarios
+IGN3	Entrada mercancías: Portes
+PDF1	Entrada preliminar de pagos: Cheques
+PDF2	Entrada preliminar de pagos: Facturas
+PDF4	Entrada preliminar de pagos: Lista de cuentas
+DLN9	Entrega - Documentos base
+DLN4	Entrega - Importe del impuesto por documento
+DLN1	Entrega - Líneas
+DLN6	Entrega - Plazos
+DLN5	Entrega - Retención de impuestos
+ODLN	Entrega
+DLN10	Entrega: Estructura filas
+DLN12	Entrega: Extensión de impuestos
+OHTM	Equipos empleado
+OBGS	Escenario de presupuesto
+MSN1	Escenarios de planificación de necesidades - Área de almacenamiento
+OMSN	Escenarios de planificación de necesidades
+OCFH	Estado de flujo de capitales - Historial
+OCST	Estados
+ADM1	Extensión administración
+BNK1	Extracto bancario - Lista de documentos
+BNK2	Extracto bancario - Lista de recomendaciones
+OBNK	Extracto bancario externo recibido
+OMTC	Extracto bancario: Criterios coincidentes
+OMRC	Fabricante
+OCR1	Factores de carga - Centro de beneficio
+OOCR	Factores de carga
+PCH12	Factura acreedores: Extensión de impuestos
+OCSI	Factura corrección de deudores
+CIN10	Factura corrección: Estructura filas
+PCH6	Factura de acreedor - Plazos
+PCH1	Factura de acreedor: Líneas
+PCH10	Factura de acreedores - Estructura de fila
+PCH4	Factura de acreedores - Importe del impuesto por documento
+PCH8	Factura de acreedores: Artículos en paquete
+PCH5	Factura de acreedores: Datos de retención de impuestos
+PCH2	Factura de acreedores: Portes - Filas
+PCH3	Factura de acreedores: Portes
+CIN4	Factura de corrección - Importe del impuesto por documento
+CIN1	Factura de corrección - Líneas
+CIN9	Factura de corrección - Líneas
+CIN6	Factura de corrección - Plazos
+CPI8	Factura de corrección acreedores: Artículos en paquete
+CPI9	Factura de corrección acreedores: Detalles de documento base
+CPI7	Factura de corrección acreedores: Entregar paquete
+CPI12	Factura de corrección acreedores: Extensión de impuestos
+CPV12	Factura de corrección acreedores: Extensión de impuestos
+CPI4	Factura de corrección de acreedores - Importe del impuesto por documento
+CPI1	Factura de corrección de acreedores - Líneas
+OCPI	Factura de corrección de acreedores
+CPI10	Factura de corrección de acreedores: Estructura de fila
+CPI3	Factura de corrección de acreedores: Portes
+CSI1	Factura de corrección de deudores - Líneas
+CPV2	Factura de corrección de deudores - Porte - Filas
+OCIN	Factura de corrección de deudores
+CSI9	Factura de corrección de deudores: Documentos base
+CIN3	Factura de corrección de deudores: Portes
+CPV3	Factura de corrección de deudores: Portes
+CSI2	Factura de corrección de deudores: Portes
+CSI3	Factura de corrección de deudores: Portes
+CIN5	Factura de corrección de deudores: Retención de impuestos
+CSI5	Factura de corrección de deudores: Retención de impuestos
+CSI10	Factura de corrección deudores: Estructura de filas
+CSI12	Factura de corrección deudores: Extensión de impuestos
+INV2	Factura de deudor - Portes - Historial - Líneas
+ADO3	Factura de deudor - Portes - Historial
+ADO2	Factura de deudor - Portes - Líneas
+ADO1	Factura de deudor (líneas) - Historial
+ADO9	Factura de deudor (líneas) - Historial
+CSI8	Factura de deudores - Artículos en paquete
+INV8	Factura de deudores - Artículos en paquete
+ADO10	Factura de deudores - Estructura de fila - Historial
+CPV10	Factura de deudores - Estructura de fila
+INV10	Factura de deudores - Estructura de fila
+INV4	Factura de deudores - Importe del impuesto por documento
+INV1	Factura de deudores - Líneas
+INV3	Factura de deudores - Líneas
+INV6	Factura de deudores - Plazos
+OINV	Factura de deudores
+
+1 likes
+
+Guest replied February 29, 2012 at 14:30 PM
+INV5	Factura de deudores: Retención de impuestos
+ATX1	Factura de impuestos - Historial - Filas
+ATXI	Factura de impuestos - Historial
+TPI1	Factura de impuestos de compras - Filas
+OTPI	Factura de impuestos de compras
+TSI1	Factura de impuestos de ventas - Filas1
+OTSI	Factura de impuestos de ventas
+OPCH	Factura de proveedores
+INV9	Factura deudores: Documentos base
+CPV7	Factura deudores: Entrega de paquetes
+INV11	Factura deudores: Extensión de anticipos
+INV12	Factura deudores: Extensión de impuestos
+OMIN	Factura mensual de deudor
+ADOC	Factura: Historial
+DPICK	Fecha del responsable de picking
+OSIX	Fecha para formulario 6111
+ORCM	Fecha recomendación
+HLD1	Fechas de vacaciones
+ODLL	Fila del algoritmo del código de barras
+MRV2	Filas FIFO de revalorización de stock
+AMR2	Filas FIFO de revalorización de stock (archivo)
+VTR3	Filtro de series
+OGFL	Filtro de trama
+VTR2	Filtro del tipo de documento
+HEM2	Formación
+OFRM	Formato de fichero
+OTNN	Formularios 1099
+OOSR	Fuente de información
+OBCG	Gastos bancarios de transferencias bancarias
+OALC	Gastos de carga
+ASC2	Gastos de inventario de llamada de servicio - Historial
+SCL2	Gastos de inventario de llamada de servicio
+OADM	Gestión
+OPPA	Gestión de la clave de acceso
+OCRH	Gestión de tarjetas crédito
+OMGP	Grupo de material
+OSGP	Grupo de servicio para Brasil
+AITB	Grupos artículo: Historial
+OARG	Grupos de aduanas
+OITB	Grupos de artículos
+OCOG	Grupos de comisiones
+ODDG	Grupos de deducción de retención de impuestos
+OCRG	Grupos de tarjetas
+VTR1	Grupos impuesto
+VTR5	Grupos impuesto
+VTR4	Grupos impuesto
+IVRU	Herramienta de valoración de stocks
+ASCL	Historial
+ADO6	Historial de documentos - Plazos
+CPI6	Historial de documentos - Plazos
+CPV6	Historial de documentos - Plazos
+CSI6	Historial de documentos - Plazos
+CSV6	Historial de documentos - Plazos
+ARC3	Historial de documentos de tarjeta
+OMTH	Historial de reconciliación
+IWZ1	Historial revalor.ctas.
+CSTN	ID de estación de trabajo
+CRD7	ID fiscal para datos maestros de SN
+CSI4	Importe del impuesto por documento
+CSV4	Importe del impuesto por documento
+TRS2	Impto.rpt.grab.obj.man.mod.val.
+OIDC	Indicador
+OCBI	Indicador banco central
+TCD5	Indicador de impuestos por utilización
+OPID	Indicador de período
+OSTC	Indicadores de IVA
+STC1	Indicadores de IVA: Líneas
+CRD4	Indicadores de retención permitidos para IC
+ACR4	Indicadores de retención permitidos para interlocutor comercial - Historial
+OOND	Industrias
+IWZ2	Inflación filtro almacén
+VRT2	Info de trama de informe de factura de impuestos
+HEM1	Información de absentismo
+MIN2	Información de artículo de empleado
+MIN1	Información del documento de informe de la factura mensual
+MSN3	Información pegging MRP
+I874	Informe 835874 - Registro de facturas
+E874	Informe 835874 - Registro final
+H874	Informe 835874 - Registro inicial
+K874	Informe 835874: Caja/VAR
+L856	Informe 856: Registro 60
+H856	Informe 857 - Registro 70
+RBOX	Informe casilla declaración impuestos
+OAMD	Informe de diferencias del importe
+VRT1	Informe de factura de impuestos - Filas
+OVRT	Informe de factura de impuestos
+SRT1	Informe de totales de Corea - Filas1
+SRT2	Informe de totales de Corea - Filas2
+OSRT	Informe de totales de Corea
+CFH1	Informe del estado de flujo de caja: Historial - Filas
+OVTR	Informe fiscal
+OIST	Instrucción efecto
+WKO1	Instrucciones de fabricación - Filas
+OWKO	Instrucciones de fabricación
+OOIN	Interés
+EJB1	JAb-ERV asistente de personas firmantes
+DDT1	Jerarquía de deducción de retención de impuestos - Filas
+ODDT	Jerarquía de deducción de retención de impuestos
+SCM3	Ledger especial - Cálculos adicionales de regla de configuración de contabilidad financiera analítica: Material
+SCR3	Ledger especial - Condiciones adicionales de regla de configuración de contabilidad financiera analítica: Ingresos y gastos
+SCR1	Ledger especial - Condiciones de regla de configuración de contabilidad financiera analítica: Ingresos y gastos
+SCM1	Ledger especial - Condiciones de regla de configuración de contabilidad financiera analítica: Material
+SLR1	Ledger especial - Líneas de informe de contabilidad financiera analítica: Ingresos y gastos
+SLM1	Ledger especial - Líneas de informe de contabilidad financiera analítica: Material
+SCR2	Ledger especial - Objetivos de regla de configuración de contabilidad financiera analítica: Ingresos y gastos
+SCM2	Ledger especial - Objetivos de regla de configuración de contabilidad financiera analítica: Material
+OSLR	Ledger especial: Informe de contabilidad analítica: Beneficios y costos
+OSLM	Ledger especial: Informe de contabilidad analítica: Material
+OSCM	Ledger especial: Reglas de configuración de contabilidad analítica - Material
+OSCR	Ledger especial: Reglas de configuración de contabilidad analítica: Ganancias y costos
+ALR2	Línea de datos de mensaje dinámica
+ALR3	Línea de datos de mensaje dinámica
+RPC2	Líneas de abono de acreedor - Gastos
+DRF2	Líneas de borrador: Portes - Filas
+CIN2	Líneas de factura de corrección: Portes - Filas
+AMD1	Líneas de informe de diferencias de importe
+CPI2	Líneas de la factura de corrección de acreedores: Portes - Filas
+IGE2	Líneas de salida de mercancías: Portes - Filas
+RTYP	Lista de clases de documento
+DGP1	Lista de clientes
+OBTD	Lista de comprobantes de diario
+DMW1	Lista de consultas
+OMLS	Lista de distribución
+ATT1	Lista de materiales: Artículos subordinados - Historial
+ITT1	Lista de materiales: Artículos subordinados
+EJD1	Lista de personas firmantes ERV-JAb
+AKL1	Lista de picking - Filas - Historial
+PKL1	Lista de picking - Filas
+APKL	Lista de picking - Historial
+OPKL	Lista de picking
+EJB2	Lista docs.p.asistente ERV-JAb
+MLS1	Listas de distribución: Destinatarios
+OPLN	Listas de precios
+OLCT	Localidad
+AFPR	Log de período de contabilización
+AAD1	Log extensión administración
+OSRD	Lotes y números de serie
+OBPL	Lugar comercial
+OCLO	Lugar de reuniones
+OSCL	Llamadas de servicio
+PSAR	Marco p.informe análisis ventas
+OBGD	Método de subreparto de costes de presupuesto
+QUE1	Miembros cola
+HTM1	Miembros equipo
+ODMW	Migración de datos
+CUMI	Mis artículos de menú
+OCTT	Modelo de contrato
+WTM5	Modelos autorización: Queries
+WTM4	Modelos de autorización - Condiciones
+WTM3	Modelos de autorización - Documentos
+WTM1	Modelos de autorización - Fabricantes
+OWTM	Modelos de autorización
+WTM2	Modelos de confirmación: Etapas
+TRT1	Modelos de contabilización: Líneas
+OFRT	Modelos informe financiero
+OHTR	Motivo de rescisión del contrato
+OWST	Nivel de confirmación
+WST1	Nivel de confirmación: Líneas
+OOIR	Nivel del tipo de interés
+OOST	Niveles de venta
+OSCN	Nº catálogo de deudor/acreedor
+NFN1	No es una secuencia fiscal
+OAGP	Nombre de agente
+CRD6	Nombre de pagador SN
+GFL2	Nombre filtro trama
+ORPC	Nota de crédito clientes
+RPC12	Nota de crédito de acreedor - Ampliación de plazo de pago de impuesto
+RPC3	Nota de crédito de acreedor: Porte
+RPC4	Nota de crédito de acreedores - Importe del impuesto por documento
+ORIN	Nota de crédito de clientes
+RIN12	Nota de crédito de deudor - Ampliación de plazo de pago de impuesto
+RIN2	Nota de crédito de deudor - Porte - Filas
+RIN3	Nota de crédito de deudor: Porte
+RIN4	Nota de crédito de deudores - Importe del impuesto por documento
+RIN7	Nota de crédito de deudores: Paquetes de entrega
+RPC5	Nota de crédito de proveedores: Retención de impuestos
+DLN2	Notas de entrega: Portes - Filas
+DLN3	Notas de entrega: Portes
+OVNM	Numeración de declaración fiscal
+NNM1	Numeración de documento: Series
+OCCD	Número de declaración de aduana de portes
+ODIB	Número de lote para artículo
+OIBT	Número de lote para artículo
+OSRL	Números de serie
+ODSR	Números de serie del documento preliminar para los artículos
+OSRI	Números de serie para artículos
+OTRS	Objeto de grabación del report fiscal
+TRS1	Objeto de grabación del report fiscal: Documentos aprobados
+OUDO	Objeto definido por el usuario
+UDO2	Objetos opcionales - Buscar columnas
+UDO3	Objetos opcionales - Columnas encontradas
+UDO1	Objetos opcionales - Nodo subordinado
+QUT8	Oferta - Artículos en paquete
+QUT9	Oferta - Documentos base
+QUT10	Oferta - Estructura de fila
+QUT4	Oferta - Importe del impuesto por documento
+QUT6	Oferta a cliente: Plazos
+QUT1	Oferta a un cliente: Filas
+OQUT	Oferta de ventas
+QUT12	Oferta de ventas: Extensión de impuestos
+QUT2	Oferta de ventas: Portes - Filas
+QUT3	Oferta de ventas: Portes
+QUT5	Oferta: Impuesto
+DGP3	Opciones de consolidación expandidas
+CLND	Opciones de diario
+OUDG	Opciones de usuario
+OIND	Operación triangular
+OCLG	Operaciones
+OCFT	Operaciones de flujo de caja - Filas
+TAX1	Operaciones de IVA - Líneas
+UTX1	Operaciones de IVA no declaradas - Líneas
+BOT1	Operaciones de letras
+IBT1	Operaciones de número de lote
+OPR3	Oportunidad de ventas - Competidores
+OPR1	Oportunidad de ventas - Filas
+OPR5	Oportunidad de ventas - Motivos
+OPR2	Oportunidad de ventas - Socios
+OPR4	Oportunidad ventas: Intereses
+OOPR	Oportunidades
+OPOR	Orden de Compra
+WOR1	Orden de fabricación - Filas
+OWOR	Orden de fabricación
+OSCO	Orígenes de llamada de servicio
+OCDT	Pago con tarjeta de crédito
+ARC1	Pago recibido - Cheques - Historial
+RCT1	Pago recibido - Cheques
+RCC4	Pago recibido - Documentos de tarjeta
+RCT3	Pago recibido - Documentos de tarjeta
+ARC2	Pago recibido - Facturas - Historial
+ARCT	Pago recibido - Historial
+RCT7	Pago recibido - Importe del impuesto por documento
+ARC4	Pago recibido - Lista de cuentas - Historial
+RCT4	Pago recibido - Lista de cuentas
+OCRV	Pagos de crédito
+VPM4	Pagos efectuados - Cuentas
+VPM3	Pagos efectuados - Documentos de tarjeta
+VPM2	Pagos efectuados - Facturas
+VPM1	Pagos efectuados - Filas de cheque
+VPM7	Pagos efectuados - Importe del impuesto por documento
+OVPM	Pagos efectuados
+VPM6	Pagos efectuados: Filas de retención de impuestos
+RCT2	Pagos recibidos - Facturas
+RCT6	Pagos recibidos: Filas de retención de impuestos
+ARC6	Pagos: Filas de retención de impuestos - Historial
+ARC7	Pagos: Importe del impuesto por documento - Historial
+OCRY	Países
+RDN7	Paquetes de entrega - Devoluciones
+DRF7	Paquetes de entrega - Documentos preliminares
+PCH7	Paquetes de entrega - Factura de acreedores
+CIN7	Paquetes de entrega - Factura de corrección
+CSI7	Paquetes de entrega - Factura de deudores
+INV7	Paquetes de entrega - Factura de deudores
+ADO7	Paquetes de entrega - Historial
+RPC7	Paquetes de entrega - Nota de crédito de acreedores
+QUT7	Paquetes de entrega - Oferta a un cliente
+POR7	Paquetes de entrega - Pedido
+RDR7	Paquetes de entrega - Pedido de cliente
+IGE7	Paquetes de entrega - Salida de mercancías
+DLN7	Paquetes de entrega
+DPO7	Paquetes de entrega: Anticipo de acreedores
+DPI7	Paquetes de entrega: Anticipo de deudores
+TPS2	Parámetro fiscal - Valores de retorno
+OTPS	Parámetro fiscal
+DBCN	Parámetros conexión base de datos
+OPYB	Payment Block
+POR9	Pedido - Documentos base
+POR4	Pedido - Importe del impuesto por documento
+POR6	Pedido - Plazos
+RDR12	Pedido de cliente - Ampliación de plazo de pago de impuesto
+RDR8	Pedido de cliente - Artículos en paquete
+RDR10	Pedido de cliente - Estructura de fila
+RDR1	Pedido de cliente - Filas
+RDR4	Pedido de cliente - Importe del impuesto por documento
+RDR6	Pedido de cliente - Plazos
+RDR2	Pedido de cliente - Porte - Filas
+RDR3	Pedido de cliente - Porte
+ORDR	Pedido de cliente
+RDR5	Pedido de cliente: Retención de impuestos
+PDN5	Pedido de entrada de mercancía: Retención de impuestos
+PDN8	Pedido de entrada de mercancías - Artículos en paquete
+PDN9	Pedido de entrada de mercancías - Documentos base
+PDN1	Pedido de entrada de mercancías - Filas
+PDN4	Pedido de entrada de mercancías - Importe del impuesto por documento
+PDN7	Pedido de entrada de mercancías - Paquetes de entrega
+PDN6	Pedido de entrada de mercancías - Plazos
+PDN2	Pedido de entrada de mercancías: Portes - Filas
+PDN10	Pedido entrada mercancías: Estructura fila
+RDR9	Pedido: Detalles documentos base
+
+0 likes
+
+Guest replied February 29, 2012 at 14:30 PM
+POR10	Pedido: Estructura fila
+POR12	Pedido: Extensión de impuestos
+POR1	Pedido: Líneas
+POR2	Pedido: Portes - Filas
+POR3	Pedido: Portes
+POR5	Pedido: Retención de impuestos
+OFPR	Período contable
+STA1	Período válido
+AACP	Períodos log categoría
+ACPR	Personas de contacto - Historial
+OCPR	Personas de contacto
+OTRT	Plantillas de contabilización
+CTG1	Plazo layout
+ODUT	Plazos reclamación
+OPTF	Portafolio efecto
+OCFW	Posición de documento de flujo de caja
+OHPS	Posición empleado
+IPF2	Precios de entrega - Costos
+IPF1	Precios de entrega - Líneas
+OIRT	Precios de interés
+OSPP	Precios especiales
+OSPG	Precios especiales para grupos
+SPP2	Precios especiales: Áreas de cantidad
+SPP1	Precios especiales: Áreas de datos
+BGT1	Presupuesto - Líneas
+OBGT	Presupuesto
+FCT1	Previsión de ventas: Filas
+OFCT	Previsión ventas
+OBPP	Prioridades del socio de negocios
+OCDP	Procedimiento de fecha de cierre
+ODOX	Propiedad datos: Excepciones
+ODOW	Propiedad de datos: Objetos
+OITG	Propiedades del artículo
+OCQG	Propiedades tarjeta
+OPDF	Propuesta de pago
+ARC5	Reciept log vat adjustment-History
+ODUN	Reclamaciones
+CASEX	Recon.interna upgrade 2007A
+CASE1	Recon.interna upgrade 2007A
+CASE	Recon.interna upgrade 2007A
+OITR	Reconciliación interna
+ITR1	Reconciliación interna: Líneas
+OSVR	Reconciliaciones grabadas
+SVR1	Reconciliaciones grabadas: Lista de transacción
+OCHH	Registro de cheques
+AJDT	Registro en el diario - Historial
+AJD1	Registros en diario - Historial - Líneas
+GFL1	Reglas filtro trama
+OORL	Relaciones
+R874	Report 835874: Registro log importación
+FLT1	Report 856 - Criterios de selección
+ORFL	Reports 347, 349 e IR ya visualizados
+MSN2	Resultados ejecución MRP
+OWHT	Retención de impuestos
+ADO5	Retención de impuestos: Historial
+OMRV	Revaloración de inventario
+AMR1	Revaloración de stocks - Historial - Filas
+AMRV	Revaloración de stocks - Historial
+OMRL	Revaloriz.avanzada invent.
+CIFV	Revalorización inventario FIFO
+HEM3	Revisión de empleado
+HEM6	Roles empleado
+IGE9	Salida de mercancías - Documentos base
+IGE10	Salida de mercancías - Estructura de fila
+IGE4	Salida de mercancías - Importe del impuesto por documento
+IGE1	Salida de mercancías - Líneas
+IGE6	Salida de mercancías - Plazos
+OIGE	Salida de mercancías
+IGE12	Salida de mercancías: Extensión de impuestos
+IGE3	Salida de mercancías: Portes
+IGE5	Salida de mercancías: Retención de impuestos
+OASG	Segmentación de cuenta
+PYM1	Selección de moneda
+ODGP	Sets de parámetros de generación de documentos
+OCRB	Socio de negocios - Cuenta bancaria
+OCRD	Socio de negocios
+CRD1	Socios de negocios - Direcciones
+ACRD	Socios de negocios - Historial
+OPRT	Socios de negocios
+OREQ	Solicitud de llamada de sistema externo
+REQ3	Solicitud llamada externa sistema - Lista argumentos mensajes
+REQ2	Solicitud llamada externa sistema - Lista de argumentos
+REQ1	Solicitud llamada externa sistema - Lista mensajes
+SCL1	Soluciones de llamada de servicio - Filas
+ASC1	Soluciones de llamada de servicio - Historial
+OSLT	Soluciones de llamada de servicio
+OCLA	Status actividad
+OHST	Status de empleado
+OSCS	Status de llamada de servicio
+OSST	Status de solución de llamada de servicio
+OUBR	Sucursales
+OHLD	Tabla de festivos
+PEX1	Tabla de resultados de pago: Líneas
+OPEX	Tabla de resultados de pagos
+OSCD	Tabla del código de servicio
+OLNG	Tabla idioma usuario
+OFML	Tabla maestra de fórmula de impuestos
+QWZ1	Tablas de consulta
+OUTB	Tablas de usuario
+AINS	Tarjeta de equipo de cliente - Historial
+OINS	Tarjeta del equipo del cliente
+OCRC	Tarjetas de crédito
+ORTS	Tasas IPC y ME
+ORTT	Tasas IPC y ME
+OCLS	Temas de actividad
+OTER	Territorios
+OPDT	Texto predefinido
+ODTY	Tipo de documento del efecto
+ORIT	Tipo de interés de reclamación
+OWTT	Tipo de retención de impuestos
+OHTY	Tipos de empleado
+RIT1	Tipos de interés
+OSCP	Tipos de problema de llamada de servicio
+OMLT	Traducción de varios idiomas
+MLT1	Traducciones en idioma de usuario
+SRI1	Transacción de número de serie para posición
+OTAX	Transacciones de IVA
+OUTX	Transacciones de IVA no reportadas
+OGSP	Transporte de mercancías
+WTR12	Traslado de inventario - Ampliación de plazo de pago de impuesto
+WTR2	Traslado de inventario - Porte - Filas
+WTR3	Traslado de inventario - Porte
+WTR8	Traslado de stocks - Artículos en paquete
+WTR9	Traslado de stocks - Documentos base
+WTR10	Traslado de stocks - Estructura de fila
+WTR1	Traslado de stocks - Filas
+WTR4	Traslado de stocks - Importe del impuesto por documento
+WTR7	Traslado de stocks - Paquetes de entrega
+OWTR	Traslado de stocks
+WTR6	Traslado de stocks: Plazos
+WTR5	Traslado de stocks: Retención de impuestos
+EOY1	UDOs de fin de año
+OLGT	Unidades de longitud
+OWGT	Unidades de peso
+OUSR	Usuarios
+AUSR	Usuarios de archivo - Historial
+OUSG	Utilización de nota fiscal
+VLG1	Validación de recálculo Desde Hasta
+TCD2	Valores de campo clave
+OTPR	Valores de devolución de impuestos
+UDG1	Valores prefijados - Documentos
+UDG2	Valores prefijados - Tarjetas de crédito
+OCRP	Vías de pago
+OPYM	Vías de pago para asistente de pagos
+CLNU	Visualizar definiciones - Diario
+XRDBV	XLR company DB version
+XRUDF	XLR company UDF
+XRXLS	XLR company XLS
+XRXML	XLR company XML
+XROBJ	XLR: Objetos informe empresarial
+XRREL	XLR: Objetos informe empresarial
+CUFV	Valores Válidos de Campo de Usuario
+CUFD	Definición de Campos de usuario
+CUVV	Busqueda Formateada - Valores de Campo
+
+
+Tendrás que separar la información....
+
+Saludos Cordiales,
+
+2 likes
+
+Quintaro . replied March 01, 2012 at 10:12 AM
+Buenas tardes Paul
+
+Hay una consulta sql que nos de esta información?
+
+graicas
+
+0 likes
+
+Mauricio Quintana G replied March 26, 2010 at 18:19 PM
+
+desde el generador de consultas, en donde escribes el nombre de la tabla
+pon un asterisco (*) y presiona tecla de tab, en ese momento te
+apareceran todas las tablas disponibles.
+
+2 likes
+
+Rafael Botello replied July 08, 2015 at 19:11 PM
+Gracias por el tip, me ayudo bastante 
+
+0 likes
+
+Guest replied March 01, 2012 at 10:12 AM
+Hola...
+
+En realidad esto lo puedes obtener en el Generador de Consultas,
+simplemente listando las tablas disponibles. Luego puedes exportar esta
+información a excel.
+
+Para investigar en otras tablas que no aparecen en este listado, puedes hacerlo en el HELP de SDK.
+
+Saludos Cordiales,
+
+1 likes
+
+Quintaro . replied March 28, 2010 at 20:04 PM
+Muchas gracias por sus comentarios.
+
+Saludos.
+
+0 likes
+
+Guest replied March 01, 2012 at 10:13 AM
+Hola...
+
+Tengo la sensación que este caso jamas sera cerrado por quien inicio el
+post, pues probablemente solo investigaron para su trabajo de estudios.
+Quintaro, si te es posible cerrar el caso, lo agradeceremos para efectos
+de llevar un control solo de aquellos casos que efectivamente no han
+sido aún respondidos.
+
+Gracias,
+
+Saludos Cordiales,
+
+Edited by: Paul Ponce on Apr 2, 2010 7:52 PM
+
+0 likes
+
+Carlos Sanz replied March 01, 2012 at 10:21 AM
+Hola Paul
+
+Como generas un mayor analitico, lo puse en un post pero nadie
+respondió, por eso me tomé el atrevimiento de escribir en este, el libro
+mayor se como generarlo, pero es muy poco descriptivo, un poco escueto
+para ser sinceros, y no coloca la descripcion o concepto del articulo o
+servicio, solo coloca factura de proveedores en la supuesta información
+detallada y para un gerente de empresa o un administrador, realmente eso
+no dice nada, intente arreglarlo por el Print Layout Designer, pero no
+me permite acceder a la tabla donde está esa descripción, ni quiera en
+el journal entry la coloca y eso es un problema, si me puedes ayudar te
+lo sabria agradecer...
+
+0 likes
+
+Daniela Flores replied February 29, 2012 at 14:30 PM
+Hola!
+
+Creo que nos es muy útil la información que pusiste aquí. Sobre las
+transacciones que comentaste, son todas? o aún faltan?
+
+No tienes alguna fuente de donde podamos obtener todas las
+transacciones? o por lo menos las referntes a Inventario, Producción,
+Compras y Planeación de Materiales?
+
+Además, otra pregunta: cómo podemos saber cómo están relacionadas las
+transacciones (es decir, si al realizar una transacción x de un módulo,
+tengo impacto en otros módulos y que impacto)????
+
+Muchas gracias!
+
+0 likes
+
+Hector Daniel Hernandez Bacca replied February 29, 2012 at 14:30 PM
+Hola.
+
+En Business One están relacionadas todas las funcioalidades como un
+todo, de acuerdo a la lógica de operación empresarial, y a las mejores
+prácticas de la industria.
+
+Las transacciones que se realizan en un módulo se ven reflejadas en los
+otros módulos relacionados. Es decir, si se realizan movimientos de
+ajustes de inventario, estos se verán refejados también en Compras en
+las existencias de artículos de compra que hayan sido ajustados y de
+igual manera en Ventas, en Producción y en la planeación de recursos de
+producción.
+
+Sigue en el próximo segmento:
+
+0 likes
+
+Hector Daniel Hernandez Bacca replied February 29, 2012 at 14:30 PM
+Otro ejemplo es ver el resúmen de un ciclo desde el punto de vista del
+inventario, comenzando por las ventas:
+
+- Cuando se generan Pedidos de Cliente con artículos que no hay en stock
+actualmente, se actualiza a nivel de maestro de artículos, las
+cantidades requeridas para cubrir las ventas (esto es el Comprometido).
+
+- Cuando se ejecuta el asistente del MRP (planeación de recursos para
+producción), verifica para cada artículo la cantidad comprometida en
+ventas, solicitada a proveedores, requerida en órdenes de fabricación y
+los niveles máximo, mínimo y punto de reorden. Luego a partir de la
+lista de materiales de cada artículo, genera las recomendaciones para
+comprar/producir los diferentes artículos requeridos para cubrir todas
+las necesidades.
+
+- A partir de las recomendaciones del MRP se generan las órdenes de
+compra para materia prima/componentes y órdenes de producción para
+ensamblar/procesar los componentes y semielaborados, para obtener los
+productos finales requeridos.
+
+- Si se generaron órdenes de compra de materia prima, se actualiza en el
+maestro de artículos la cantidad Solicitada para indicar que se han
+solicitado esas cantidades a proveedores. Cuando llegue la materia prima
+solicitada, se realiza entrada de mercancía comprada, actualizando el
+stock en inventario y la cantidad solicitada.
+
+- En el proceso de producción a medida que se entregan componentes y se
+recibe la producción, se actualizan las existencias del inventario.
+
+- Una vez finalizada la producción y que se encuentra el stock necesario
+para cubrir los pedidos de los clientes, se realizan la entrega de
+mercancías y su respectiva factura, descargando del inventario los
+productos entregados y actualizando la cantidad comprometida.
+
+Todas las transacciones realizadas generan un documento propio y único
+que a su vez puede estar relacionado con un registro contable que
+actualiza las cuentas contables correspondientes a la transacción de
+inventario realizada.
+
+Aunque he dejado por fuera las transacciones relacionadas con otros
+módulos como finanzas (pagos, cobros, etc.), esas transacciones también
+se registran y tienen incidencia en los demás módulos relacionados (como
+los saldos de Socios de Negocios, cartera, etc.).
+
+Espero sea de ayuda.
+
+Saludos.
+
+2 likes
+Share & Follow Facebook twitter YouTube LinkedIn Google+ Instagram
+Slideshare Privacy Terms of Use Legal Disclosure Copyright Trademark
+Sitemap Newsletter
+
