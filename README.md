@@ -1,4 +1,4 @@
-## Tablas de movimientos
+## Tablas de transacciones
 * __OINM Whse Journal -	Diario de almacen__ (stock movement table)
     Transtype (object type):    
       INM 58 - Inventory match
@@ -32,6 +32,7 @@
       Transtype (object type):  
          PDN **20** - Purchase Delivery Notes
      * __PDN1	Pedido de entrada de mercancías - Filas__  
+   Related to **OPCH**  
 
 *  __OIGN (oInvetoryGenEntry) Entrada de mercancías__  
      A goods receipt in the Warehouse Management system (WMS) 
@@ -44,7 +45,7 @@
         IGN **59** - Inventory General Entry
      * __ IGN1	Entrada de mercancías: Líneas__  
 
-* __OIGE ( oInvetoryGenExit ) Salida de mercancias__
+* __OIGE ( oInvetoryGenExit ) Salida de mercancias__   
     A goods issuefrom Extended Warehouse Management (EWM) is a physical departure 
     of products from your warehouse. 
     With a goods issue posting, you reduce the stock in the warehouse. 
@@ -67,6 +68,8 @@
         IPF 69 - Import file
     *  __IPF1	Precios de entrega - Líneas
 
+
+
 ## Tablas maestras
 
 ```SQL
@@ -84,7 +87,6 @@ SELECT * FROM OHEM
 SELECT * FROM ORCT
 
 ```
-
 
 
 ## Queries
@@ -107,3 +109,12 @@ SELECT * FROM ORCT
     Where T0."DocDate" Between '2017-02-01' And '2017-02-28'
     Order by T0."NumAtCard"
 ```
+
+## Tipos de documentos
+
+*  __IM :  Traspasos__
+*  __OA :  Salidas de materiales__
+*  __DI :  Precios de entrega para costos__
+*  __RF :  Mall Ventura__
+*  __EP :  Entrada__
+
