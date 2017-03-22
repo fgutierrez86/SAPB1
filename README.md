@@ -29,18 +29,25 @@
 * __OIGE	Salida de mercancias__
     Transtype (object type):  
       IGE 60 - Inventory General Exit
-* __IGE1	Salida de mercancias - Lineas__
+    * __IGE1	Salida de mercancias - Lineas__
 
 
 * __OJDT Asiento__
     Transtype (object type):  
       JDT 30 - Journal Transactions
-* __JDT1 Asiento Fila__
+    * __JDT1 Asiento Fila__
 
 * __OINV Facturas deudores__
     Transtype (object type):  
         INV 13 - Invoices
-* __INV1 Facturas deudores - lineas__
+    * __INV1 Facturas deudores - lineas__
+
+
+* __OWTR	Traslado de stocks__  
+    Transtype (object type):  
+        WTR 67 - Warehouses Transfers
+    *  __WTR1	Traslado de stocks - Filas__
+       
 
 
 ## Queries
