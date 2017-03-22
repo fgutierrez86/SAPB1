@@ -1,5 +1,5 @@
 ## Tablas
-* __OINM	Diario de almacen__ (stock movement table)
+* __OINM Whse Journal -	Diario de almacen__ (stock movement table)
     Transtype (object type):    
       INM 58 - Inventory match
 
@@ -25,29 +25,42 @@
     * __162	Inventory Valuation__  
     * __69	Landed Costs__  
 
-
-* __OIGE	Salida de mercancias__
+* __OINV (oInvoice) Facturas deudores__
     Transtype (object type):  
-      IGE 60 - Inventory General Exit
-    * __IGE1	Salida de mercancias - Lineas__
-
-
-* __OJDT Asiento__
-    Transtype (object type):  
-      JDT 30 - Journal Transactions
-    * __JDT1 Asiento Fila__
-
-* __OINV Facturas deudores__
-    Transtype (object type):  
-        INV 13 - Invoices
+        INV **13** - Invoices
     * __INV1 Facturas deudores - lineas__
+
+* __ORIN (oCreditNote) Nota de crédito de clientes (Anulacion de facturas)__ 
+      Transtype (object type):
+        RIN **14** - Revert Invoices
+    * __RIN1 Anulacion de facturas Linea__  
+
+* __OPDN (oPurchaseDeliveryNotes)  Entrada de mercancías__ 
+      Transtype (object type):  
+         PDN **20** - Purchase Delivery Notes
+     * __PDN1	Pedido de entrada de mercancías - Filas__  
+
+*  __OIGN (oInvetoryGenEntry) Entrada de mercancías__ 
+      Transtype (object type):
+        IGN **59** - Inventory General Entry
+     * __ IGN1	Entrada de mercancías: Líneas__  
+
+* __OIGE ( oInvetoryGenExit ) Salida de mercancias__
+    Transtype (object type):  
+      IGE **60** - Inventory General Exit
+    * __IGE1	Salida de mercancias - Lineas__
 
 
 * __OWTR	Traslado de stocks__  
     Transtype (object type):  
-        WTR 67 - Warehouses Transfers
+        WTR **67** - Warehouses Transfers
     *  __WTR1	Traslado de stocks - Filas__
        
+*  __OIPF	Costos de importación__  
+    Transtype (object type):
+        IPF 69 - Import file
+    *  __IPF1	Precios de entrega - Líneas
+
 
 
 ## Queries
