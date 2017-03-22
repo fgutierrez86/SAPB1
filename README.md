@@ -1,26 +1,27 @@
 ## Tablas
-* __OINM	Diario de almacén__ 
+* __OINM	Diario de almacen__ 
 
     Tipos de TransType que existen en la bd Natura
 
-        * __13 	A/R Invoice__
-        * __14 	A/R Credit Memo__
-        * __20 	Goods Receipt PO__
-        * __59 	Goods Receipt__  A goods receipt in the Warehouse Management system (WMS) 
-            is the physical inbound movement of goods or materials into the warehouse. 
-            It is a goods movement that is used to post goods received from external 
-            vendors or from in-plant production. All goods receipts result in an increase 
-            of stock in the warehouse.
-        * __60 	 Goods Issue__
+    *  __13 	A/R Invoice__
+    *  __14 	A/R Credit Memo__
+    *  __20 	Goods Receipt PO__
+    *  __59     Goods Receipt__  
+          A goods receipt in the Warehouse Management system (WMS) 
+          is the physical inbound movement of goods or materials into the warehouse. 
+          It is a goods movement that is used to post goods received from external 
+          vendors or from in-plant production. All goods receipts result in an increase 
+          of stock in the warehouse.
+    * __60 	Goods Issue__
             Salida de productos del warehouse (almacen)
-        * __67 	Inventory Transfers__
+    * __67 	Inventory Transfers__
             You use this function to transfer inventory from one warehouse to another.
-        * __162	Inventory Valuation__
-        * __69	Landed Costs__
+    * __162	Inventory Valuation__
+    * __69	Landed Costs__
 
 
-* __OIGE	Salida de mercancías__
-* __IGE1	Salida de mercancías - Líneas__
+* __OIGE	Salida de mercancias__
+* __IGE1	Salida de mercancias - Lineas__
 
 
 * __OJDT Asiento__
