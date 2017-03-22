@@ -28,7 +28,7 @@
     *  69	Landed Costs  
     *  162	Inventory Valuation  
 
-#4  
+### 4  
 ###OINV (oInvoice) (ventas) Facturas deudores
     Transtype (object type):  
         INV **13** - Invoices
