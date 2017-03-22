@@ -1,15 +1,15 @@
 ## Tablas de transacciones (Generan movimiento en OINM)
 
-|Tabla     | Nombre                  |Transtype                             | Tabla de filas |
-|----------|-------------------------|--------------------------------------|------------------------------------|
-|**OINM**  |Diario de almacen        | INM **58** - Inventory match         |                                    |
-|**OINV**  |Facturas deudores        |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
-|**ORIN**  |Anulacion de facturas    |RIN **14** - Revert Invoices          |RIN1 anulacion de facturas linea    |
-|**OPDN**  |Entrada de mercancías AP |PDN **20** - Purchase Delivery Notes  |PDN1 pedido de entrada de mercancias|
-|**OIGN**  |Entrada de mercancías    |IGN **59** - Inventory General Entry  |IGN1                                |
-|**OIGE**  |Salida de mercancías     |IGE **60** - Inventory General Exit   |IGE1 Entrada de mercancias lineas   |
-|**OWTR**  |Traslado de stock        |WTR **67** - Warehouses Transfers     |WTR1 traslado de stock              |
-|**OIPF**  |Costos de importación    |IPF 69 - Import file                  |IPF1 Precios de entrega             |
+|Tabla         | Nombre                  |Transtype                             | Tabla de filas                     |
+|--------------|-------------------------|--------------------------------------|------------------------------------|
+|[OINM](##OINM)|Diario de almacen        | INM **58** - Inventory match         |                                    |
+|[OINV](##OINV)|Facturas deudores        |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
+|**ORIN**      |Anulacion de facturas    |RIN **14** - Revert Invoices          |RIN1 anulacion de facturas linea    |
+|**OPDN**      |Entrada de mercancías AP |PDN **20** - Purchase Delivery Notes  |PDN1 pedido de entrada de mercancias|
+|**OIGN**      |Entrada de mercancías    |IGN **59** - Inventory General Entry  |IGN1                                |
+|**OIGE**      |Salida de mercancías     |IGE **60** - Inventory General Exit   |IGE1 Entrada de mercancias lineas   |
+|**OWTR**      |Traslado de stock        |WTR **67** - Warehouses Transfers     |WTR1 traslado de stock              |
+|**OIPF**      |Costos de importación    |IPF 69 - Import file                  |IPF1 Precios de entrega             |
 
 
 * __OINM Whse Journal -	Diario de almacen__ (stock movement table)
@@ -28,7 +28,7 @@
     *  69	Landed Costs  
     *  162	Inventory Valuation  
 
-* __OINV (oInvoice) (ventas) Facturas deudores__
+ * ###OINV (oInvoice) (ventas) Facturas deudores
     Transtype (object type):  
         INV **13** - Invoices
     * __INV1 Facturas deudores - lineas__
