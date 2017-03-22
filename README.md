@@ -119,7 +119,7 @@ SELECT * FROM ORCT
 
 ## Queries
 
-* Libro Ventas
+### Libro Ventas
 
 ```SQL
     Select 
