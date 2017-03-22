@@ -3,7 +3,7 @@
 |Tabla         | Nombre                  |Transtype                             | Tabla de filas                     |
 |--------------|-------------------------|--------------------------------------|------------------------------------|
 |[OINM]()|Diario de almacen        | INM **58** - Inventory match         |                                    |
-|[OINV](README#4)|Facturas deudores        |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
+|[OINV](#oinv)|Facturas deudores        |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
 |**ORIN**      |Anulacion de facturas    |RIN **14** - Revert Invoices          |RIN1 anulacion de facturas linea    |
 |**OPDN**      |Entrada de mercancías AP |PDN **20** - Purchase Delivery Notes  |PDN1 pedido de entrada de mercancias|
 |**OIGN**      |Entrada de mercancías    |IGN **59** - Inventory General Entry  |IGN1                                |
@@ -28,8 +28,7 @@
     *  69	Landed Costs  
     *  162	Inventory Valuation  
 
-### 4  
-###OINV (oInvoice) (ventas) Facturas deudores
+# OINV (oInvoice) (ventas) Facturas deudores
     Transtype (object type):  
         INV **13** - Invoices
     * __INV1 Facturas deudores - lineas__
