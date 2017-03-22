@@ -12,7 +12,7 @@
              It is a goods movement that is used to post goods received from external 
              vendors or from in-plant production. All goods receipts result in an increase 
              of stock in the warehouse.
-    * __60 	Goods Issue__
+    * __60 	Goods Issue__  
              A goods issuefrom Extended Warehouse Management (EWM) is a physical departure of products from your warehouse. 
              With a goods issue posting, you reduce the stock in the warehouse. 
              You can use a goods issue to indicate goods deliveries to your customers.
