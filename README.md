@@ -2,12 +2,12 @@
 __(Generan movimiento en OINM)__
 -------------------------------------------------------
 
-|Tabla         | Nombre                   |Transtype                             | Tabla de filas                     |
-|--------------|--------------------------|--------------------------------------|------------------------------------|
-|[OINM]()      |Diario de almacen         | INM **58** - Inventory match         |                                    |
-|[OINV](#oinv) |Facturas deudores         |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
-|[ORIN](#orin) |Anulacion de facturas     |RIN **14** - Revert Invoices          |RIN1 anulacion de facturas linea    |
-|[OPDN](#opdn) |Entrada de mercancías AP  |PDN **20** - Purchase Delivery Notes  |PDN1 pedido de entrada de mercancias|
+|Tabla         | Nombre                                  |Transtype                             | Tabla de filas                     |
+|--------------|-----------------------------------------|--------------------------------------|------------------------------------|
+|[OINM]()      |Diario de almacen                        | INM **58** - Inventory match         |                                    |
+|[OINV](#oinv) |Facturas deudores                        |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
+|[ORIN](#orin) |Anulacion de facturas                    |RIN **14** - Revert Invoices          |RIN1 anulacion de facturas linea    |
+|[OPDN](#opdn) |Entrada de mercancías AP(Importaciones)  |PDN **20** - Purchase Delivery Notes  |PDN1 pedido de entrada de mercancias|
 |[OIGN](#oign) |Entrada de mercancías     |IGN **59** - Inventory General Entry  |IGN1                                |
 |[OIGE](#oige) |Salida de mercancías      |IGE **60** - Inventory General Exit   |IGE1 Entrada de mercancias lineas   |
 |[OWTR](#owtr) |Traslado de stock         |WTR **67** - Warehouses Transfers     |WTR1 traslado de stock              |
