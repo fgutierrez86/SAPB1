@@ -1,4 +1,5 @@
-## Tablas de transacciones (Generan movimiento en OINM)
+## Tablas de transacciones 
+__(Generan movimiento en OINM)__
 -------------------------------------------------------
 
 |Tabla         | Nombre                   |Transtype                             | Tabla de filas                     |
@@ -20,6 +21,7 @@
 
 
 ### OINM 
+[volver](#tablas-de-transacciones)
 __Whse Journal -	Diario de almacen (stock movement table)__
     Transtype (object type):    
       INM 58 - Inventory match
@@ -37,18 +39,21 @@ __Whse Journal -	Diario de almacen (stock movement table)__
     *  162	Inventory Valuation  
 
 ### OINV 
+[volver](#tablas-de-transacciones)
 __(oInvoice) (ventas) Facturas deudores__
     Transtype (object type):  
         INV **13** - Invoices
     * __INV1 Facturas deudores - lineas__
 
 ### ORIN 
+[volver](#tablas-de-transacciones)
 __(oCreditNote) Nota de crédito de clientes (Anulacion de facturas)__ 
       Transtype (object type):
         RIN **14** - Revert Invoices
     * __RIN1 Anulacion de facturas Linea__  
 
 ### OPDN 
+[volver](#tablas-de-transacciones)
 __(oPurchaseDeliveryNotes)  Entrada de mercancías__ 
       Transtype (object type):  
          PDN **20** - Purchase Delivery Notes
@@ -56,6 +61,7 @@ __(oPurchaseDeliveryNotes)  Entrada de mercancías__
    Related to **OPCH**  
 
 ### OIGN 
+[volver](#tablas-de-transacciones)
 __(oInvetoryGenEntry) Entrada de mercancías__  
      A goods receipt in the Warehouse Management system (WMS) 
      is the physical inbound movement of goods or materials into the warehouse. 
@@ -68,6 +74,7 @@ __(oInvetoryGenEntry) Entrada de mercancías__
      * __ IGN1	Entrada de mercancías: Líneas__  
 
 ### OIGE 
+[volver](#tablas-de-transacciones)
 __( oInvetoryGenExit ) Salida de mercancias__   
     A goods issuefrom Extended Warehouse Management (EWM) is a physical departure 
     of products from your warehouse. 
@@ -79,6 +86,7 @@ __( oInvetoryGenExit ) Salida de mercancias__
     * __IGE1	Salida de mercancias - Lineas__
 
 ### OWTR
+[volver](#tablas-de-transacciones)
   __Traslado de stocks__  
     You use this function to transfer inventory from one warehouse to another.
 
@@ -87,6 +95,7 @@ __( oInvetoryGenExit ) Salida de mercancias__
     *  __WTR1	Traslado de stocks - Filas__
        
 ### OIPF	
+[volver](#tablas-de-transacciones)
    __Costos de importación__  
     Transtype (object type):
         IPF 69 - Import file
@@ -94,11 +103,13 @@ __( oInvetoryGenExit ) Salida de mercancias__
 
 
 ## otras tablas
+[volver](#tablas-de-transacciones)
 
 *  __OPCH  Facturas de proveedores__  
    * PCH1  Factura de acreedor linea
 
 ## Tablas maestras
+[volver](#tablas-de-transacciones)
 
 ```SQL
 
@@ -118,6 +129,7 @@ SELECT * FROM ORCT
 
 
 ## Queries
+[volver](#tablas-de-transacciones)
 
 ### Libro Ventas
 
@@ -139,6 +151,7 @@ SELECT * FROM ORCT
 ```
 
 ## Tipos de documentos
+[volver](#tablas-de-transacciones)
 
 *  __IM :  Traspasos__
 *  __OA :  Salidas de materiales__
