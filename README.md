@@ -1,6 +1,6 @@
 ## Tablas de transacciones 
+----------------------------------
 __(Generan movimiento en OINM)__
--------------------------------------------------------
 
 |Tabla         | Nombre                                  |Transtype                             | Tabla de filas                     |
 |--------------|-----------------------------------------|--------------------------------------|------------------------------------|
@@ -133,7 +133,7 @@ SELECT * FROM ORCT
 
 
 ```SQL
-# Libro Ventas
+-- Libro Ventas
     Select 
             T0."NumAtCard" As NumeroFactura, 
             T0."DocTotal" As Total, 
@@ -149,7 +149,7 @@ SELECT * FROM ORCT
     Where T0."DocDate" Between '2017-02-01' And '2017-02-28'
     Order by T0."NumAtCard"
 
-# Consulta de movimientos
+-- Consulta de movimientos
 
 
 Select sum("TransValue") from 
@@ -173,10 +173,54 @@ Select sum("TransValue") from
         --And "TransValue" > 0
 )
 
-# Contar los tipos de transacciones
+-- Contar los tipos de transacciones
 
 Select  "TransType", Count(*) As Cantidad From OINM
 Group by "TransType"
+
+-- Calculo de Salidas/Entradas de mercancias
+
+Select
+        'Ingresos' as TipMov,
+        --'Salidas' as TipMov,
+        Cast(T0."DocDate" as date) AS FECHA,
+        cast(T0."DocNum" as varchar) As Numero,
+        T3."ActId" AS CUENTA_CONTABLE,
+        T3."AcctName" AS DESC_CONTABLE,
+        T1."ItemCode" AS COD_MATERIAL,
+        T1."Dscription" As PRODUCTO,
+        T1."Quantity" as CANTIDAD,
+        abs(T2."TransValue") as TOTAL,
+        'SAP' as NATURALEZA,
+        'SAP' as FAMILIA,
+        T1."U_NPedidoGera" as PEDIDO,
+        T1."WhsCode" as ALMACEN,
+        T0."Comments" as Comentario, 
+        T0."JrnlMemo" as Observaciones
+From OIGN T0  -- Ingresos
+Inner Join IGN1 T1 -- Ingresos
+--From OIGE T0 -- Salidas
+--Inner Join IGE1 T1 -- salidas
+on T0."DocEntry"=T1."DocEntry"
+inner join OINM T2
+On 
+	T1."DocEntry"=T2."CreatedBy" and 
+	T0."DocNum"=T2."BASE_REF" and 	
+	T0."ObjType"=T2."TransType" and 
+	T1."ItemCode"=T2."ItemCode" and 
+	T1."LineNum"=T2."DocLineNum"
+Inner Join OACT T3
+ON T1."AcctCode" = T3."AcctCode"
+Where Cast(T0."DocDate" as Date) between '2017-02-01' and '2017-02-28'
+and T1."U_NPedidoGera" 
+--- Estos pedidos de febrero estan mal ingresado en febrero.(comentar para otros
+-- meses.
+not in (1178689,1178724,1178749,1178781,1178842,1178844,1178855,1178898,1178971,1179020)
+order by Cast(T0."DocDate" as Date),cast(T0."DocNum" as varchar)
+
+
+
+
 
 ```
 
