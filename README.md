@@ -5,8 +5,8 @@ __(Generan movimiento en OINM)__
 |Tabla                         | Nombre                                  |Transtype                             | Tabla de filas                     |
 |------------------------------|-----------------------------------------|--------------------------------------|------------------------------------|
 |[OINM]()                      |Diario de almacen                        | INM **58** - Inventory match         |                                    |
-|[OINV](#markdown-header-oinv) |Facturas deudores                        |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
-|[ORIN](#markdown-header-orin) |Anulacion de facturas                    |RIN **14** - Revert Invoices          |RIN1 anulacion de facturas linea    |
+|[OINV](#markdown-header-oinv) |Facturas deudores (ventas MALL Ventura)  |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
+|[ORIN](#markdown-header-orin) |Anulacion de facturas(Mall Ventura)      |RIN **14** - Revert Invoices          |RIN1 anulacion de facturas linea    |
 |[OPDN](#markdown-header-opdn) |Entrada de mercancías AP(Importaciones)  |PDN **20** - Purchase Delivery Notes  |PDN1 pedido de entrada de mercancias|
 |[OIGN](#markdown-header-oign) |Entrada de mercancías                    |IGN **59** - Inventory General Entry  |IGN1                                |
 |[OIGE](#markdown-header-oige) |Salida de mercancías                     |IGE **60** - Inventory General Exit   |IGE1 Entrada de mercancias lineas   |
