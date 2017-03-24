@@ -5,7 +5,7 @@ __(Generan movimiento en OINM)__
 |Tabla         | Nombre                                  |Transtype                             | Tabla de filas                     |
 |--------------|-----------------------------------------|--------------------------------------|------------------------------------|
 |[OINM]()      |Diario de almacen                        | INM **58** - Inventory match         |                                    |
-|[OINV](#oinv) |Facturas deudores                        |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
+|[OINV](#markdown-header-oinv) |Facturas deudores                        |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
 |[ORIN](#orin) |Anulacion de facturas                    |RIN **14** - Revert Invoices          |RIN1 anulacion de facturas linea    |
 |[OPDN](#opdn) |Entrada de mercancías AP(Importaciones)  |PDN **20** - Purchase Delivery Notes  |PDN1 pedido de entrada de mercancias|
 |[OIGN](#oign) |Entrada de mercancías     |IGN **59** - Inventory General Entry  |IGN1                                |
@@ -202,14 +202,14 @@ Inner Join IGN1 T1 -- Ingresos
 --From OIGE T0 -- Salidas
 --Inner Join IGE1 T1 -- salidas
 on T0."DocEntry"=T1."DocEntry"
-inner join OINM T2
+inner join OINM T2  -- diarios de inventario.
 On 
 	T1."DocEntry"=T2."CreatedBy" and 
 	T0."DocNum"=T2."BASE_REF" and 	
 	T0."ObjType"=T2."TransType" and 
 	T1."ItemCode"=T2."ItemCode" and 
 	T1."LineNum"=T2."DocLineNum"
-Inner Join OACT T3
+Inner Join OACT T3 -- Cuentas contables.
 ON T1."AcctCode" = T3."AcctCode"
 Where Cast(T0."DocDate" as Date) between '2017-02-01' and '2017-02-28'
 and T1."U_NPedidoGera" 
@@ -217,10 +217,6 @@ and T1."U_NPedidoGera"
 -- meses.
 not in (1178689,1178724,1178749,1178781,1178842,1178844,1178855,1178898,1178971,1179020)
 order by Cast(T0."DocDate" as Date),cast(T0."DocNum" as varchar)
-
-
-
-
 
 ```
 
