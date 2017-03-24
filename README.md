@@ -2,26 +2,26 @@
 ----------------------------------
 __(Generan movimiento en OINM)__
 
-|Tabla         | Nombre                                  |Transtype                             | Tabla de filas                     |
-|--------------|-----------------------------------------|--------------------------------------|------------------------------------|
-|[OINM]()      |Diario de almacen                        | INM **58** - Inventory match         |                                    |
+|Tabla                         | Nombre                                  |Transtype                             | Tabla de filas                     |
+|------------------------------|-----------------------------------------|--------------------------------------|------------------------------------|
+|[OINM]()                      |Diario de almacen                        | INM **58** - Inventory match         |                                    |
 |[OINV](#markdown-header-oinv) |Facturas deudores                        |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
-|[ORIN](#orin) |Anulacion de facturas                    |RIN **14** - Revert Invoices          |RIN1 anulacion de facturas linea    |
-|[OPDN](#opdn) |Entrada de mercancías AP(Importaciones)  |PDN **20** - Purchase Delivery Notes  |PDN1 pedido de entrada de mercancias|
-|[OIGN](#oign) |Entrada de mercancías     |IGN **59** - Inventory General Entry  |IGN1                                |
-|[OIGE](#oige) |Salida de mercancías      |IGE **60** - Inventory General Exit   |IGE1 Entrada de mercancias lineas   |
-|[OWTR](#owtr) |Traslado de stock         |WTR **67** - Warehouses Transfers     |WTR1 traslado de stock              |
-|[OIPF](#oipf) |Costos de importación     |IPF 69 - Import file                  |IPF1 Precios de entrega             |
+|[ORIN](#markdown-header-orin) |Anulacion de facturas                    |RIN **14** - Revert Invoices          |RIN1 anulacion de facturas linea    |
+|[OPDN](#markdown-header-opdn) |Entrada de mercancías AP(Importaciones)  |PDN **20** - Purchase Delivery Notes  |PDN1 pedido de entrada de mercancias|
+|[OIGN](#markdown-header-oign) |Entrada de mercancías                    |IGN **59** - Inventory General Entry  |IGN1                                |
+|[OIGE](#markdown-header-oige) |Salida de mercancías                     |IGE **60** - Inventory General Exit   |IGE1 Entrada de mercancias lineas   |
+|[OWTR](#markdown-header-owtr) |Traslado de stock                        |WTR **67** - Warehouses Transfers     |WTR1 traslado de stock              |
+|[OIPF](#markdown-header-oipf) |Costos de importación                    |IPF 69 - Import file                  |IPF1 Precios de entrega             |
 
-* [Otras tablas](#otras-tablas)  
-* [Tablas maestras](#tablas-maestras) 
-* [Queries](#queries) 
-   * [Libro Ventas](#libro-ventas) 
-* [Tipos de documentos](#tipos-de-documentos) 
+* [Otras tablas](#markdown-header-otras-tablas)  
+* [Tablas maestras](#markdown-header-tablas-maestras) 
+* [Queries](#markdown-header-queries) 
+   * [Libro Ventas](#markdown-header-libro-ventas) 
+* [Tipos de documentos](#markdown-header-tipos-de-documentos) 
 
 
 ### OINM 
-[volver](#tablas-de-transacciones)   
+[<--](#markdown-header-tablas-de-transacciones)   
 __Whse Journal -	Diario de almacen (stock movement table)__
     Transtype (object type):    
       INM 58 - Inventory match
@@ -39,21 +39,21 @@ __Whse Journal -	Diario de almacen (stock movement table)__
     *  162	Inventory Valuation  
 
 ### OINV 
-[volver](#tablas-de-transacciones)  
+[<--](#markdown-header-tablas-de-transacciones)   
 __(oInvoice) (ventas) Facturas deudores__
     Transtype (object type):  
         INV **13** - Invoices
     * __INV1 Facturas deudores - lineas__
 
 ### ORIN 
-[volver](#tablas-de-transacciones)  
+[<--](#markdown-header-tablas-de-transacciones)   
 __(oCreditNote) Nota de crédito de clientes (Anulacion de facturas)__ 
       Transtype (object type):
         RIN **14** - Revert Invoices
     * __RIN1 Anulacion de facturas Linea__  
 
 ### OPDN 
-[volver](#tablas-de-transacciones)  
+[<--](#markdown-header-tablas-de-transacciones)   
 __(oPurchaseDeliveryNotes)  Entrada de mercancías__ 
       Transtype (object type):  
          PDN **20** - Purchase Delivery Notes
@@ -61,7 +61,7 @@ __(oPurchaseDeliveryNotes)  Entrada de mercancías__
    Related to **OPCH**  
 
 ### OIGN 
-[volver](#tablas-de-transacciones)  
+[<--](#markdown-header-tablas-de-transacciones)   
 __(oInvetoryGenEntry) Entrada de mercancías__  
      A goods receipt in the Warehouse Management system (WMS) 
      is the physical inbound movement of goods or materials into the warehouse. 
@@ -74,7 +74,7 @@ __(oInvetoryGenEntry) Entrada de mercancías__
      * __ IGN1	Entrada de mercancías: Líneas__  
 
 ### OIGE 
-[volver](#tablas-de-transacciones)  
+[<--](#markdown-header-tablas-de-transacciones)   
 __( oInvetoryGenExit ) Salida de mercancias__   
     A goods issuefrom Extended Warehouse Management (EWM) is a physical departure 
     of products from your warehouse. 
@@ -86,7 +86,7 @@ __( oInvetoryGenExit ) Salida de mercancias__
     * __IGE1	Salida de mercancias - Lineas__
 
 ### OWTR
-[volver](#tablas-de-transacciones)  
+[<--](#markdown-header-tablas-de-transacciones)   
   __Traslado de stocks__  
     You use this function to transfer inventory from one warehouse to another.
 
@@ -95,7 +95,7 @@ __( oInvetoryGenExit ) Salida de mercancias__
     *  __WTR1	Traslado de stocks - Filas__
        
 ### OIPF	
-[volver](#tablas-de-transacciones)  
+[<--](#markdown-header-tablas-de-transacciones)   
    __Costos de importación__  
     Transtype (object type):
         IPF 69 - Import file
@@ -103,13 +103,13 @@ __( oInvetoryGenExit ) Salida de mercancias__
 
 
 ## otras tablas
-[volver](#tablas-de-transacciones)  
+[<--](#markdown-header-tablas-de-transacciones)   
 
 *  __OPCH  Facturas de proveedores__  
    * PCH1  Factura de acreedor linea
 
 ## Tablas maestras
-[volver](#tablas-de-transacciones)  
+[<--](#markdown-header-tablas-de-transacciones)   
 
 ```SQL
 
@@ -129,7 +129,7 @@ SELECT * FROM ORCT
 
 
 ## Queries
-[volver](#tablas-de-transacciones)  
+[<--](#markdown-header-tablas-de-transacciones)   
 
 
 ```SQL
@@ -221,7 +221,7 @@ order by Cast(T0."DocDate" as Date),cast(T0."DocNum" as varchar)
 ```
 
 ## Tipos de documentos
-[volver](#tablas-de-transacciones)  
+[<--](#markdown-header-tablas-de-transacciones)   
 
 *  __IM :  Traspasos__
 *  __OA :  Salidas de materiales__
