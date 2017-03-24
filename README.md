@@ -131,9 +131,9 @@ SELECT * FROM ORCT
 ## Queries
 [volver](#tablas-de-transacciones)  
 
-### Libro Ventas
 
 ```SQL
+# Libro Ventas
     Select 
             T0."NumAtCard" As NumeroFactura, 
             T0."DocTotal" As Total, 
@@ -148,6 +148,36 @@ SELECT * FROM ORCT
         --On T0."DocEntry" = T1."DocEntry"
     Where T0."DocDate" Between '2017-02-01' And '2017-02-28'
     Order by T0."NumAtCard"
+
+# Consulta de movimientos
+
+
+Select sum("TransValue") from 
+(
+        SELECT 
+            "TransType", "Warehouse", "CreatedBy", "BASE_REF", "ItemCode", 
+            "InQty", "OutQty", "Price", "CalcPrice", "TransValue", 
+            "PriceDiff", "RevalTotal", "VarVal", "NegInvAdjs", 
+            "OpenNegInv", "WipVal", "InvntAct", "CreateDate", 
+            "TransSeq", "ApplObj", "AppObjAbs", "AppObjType", 
+            "AppObjLine", "CostMethod"
+        FROM OINM
+        Where "TransType" = 59  -- 59 Entradas
+        And "BASE_REF" = 98
+
+        -- Where "TransType"=60  -- Salida
+        -- And "BASE_REF" = 363
+
+        --Where "TransType" = 67  -- Traspaso
+        --And "BASE_REF" = 1787
+        --And "TransValue" > 0
+)
+
+# Contar los tipos de transacciones
+
+Select  "TransType", Count(*) As Cantidad From OINM
+Group by "TransType"
+
 ```
 
 ## Tipos de documentos
@@ -158,4 +188,5 @@ SELECT * FROM ORCT
 *  __DI :  Precios de entrega para costos__
 *  __RF :  Mall Ventura__
 *  __EP :  Entrada de materiales__
+
 
