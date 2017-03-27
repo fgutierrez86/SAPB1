@@ -16,7 +16,7 @@ __(Generan movimiento en OINM)__
 * [Otras tablas](#markdown-header-otras-tablas)  
 * [Tablas maestras](#markdown-header-tablas-maestras) 
 * [Queries](#markdown-header-queries) 
-   * [Libro Ventas](#markdown-header-libro-ventas) 
+   * [Mall Ventura](#markdown-header-mall-ventura) 
 * [Tipos de documentos](#markdown-header-tipos-de-documentos) 
 
 
@@ -218,9 +218,11 @@ and T1."U_NPedidoGera"
 not in (1178689,1178724,1178749,1178781,1178842,1178844,1178855,1178898,1178971,1179020)
 order by Cast(T0."DocDate" as Date),cast(T0."DocNum" as varchar)
 
+```
 
+### MALL VENTURA
 
-
+```SQL
 -------     MALL VENTURA (Costos de venta)
 Select  
 	C."U_NROAUTOR" As NumeroAutorizacion,
@@ -248,6 +250,35 @@ Where C."DocDate" between '2017-01-01' And '2017-01-31'
 and A."TransType"=13 -- Facturas de venta del mall ventura 
 Order By "U_NROAUTOR", "NumAtCard"
 
+
+-------     MALL VENTURA (Devolucion al Inventario por Anulacion de factura)
+Select  
+	C."U_NROAUTOR" As NumeroAutorizacion,
+	C."NumAtCard" As NumeroFactura, 
+	C."U_CODCTRL",
+	D."DocEntry",
+	C."Comments",
+	C."JrnlMemo",
+	C."DocDate" As Fecha,
+	CC."ActId" As CuentaContable,
+	CC."AcctName" As NombreCuentaContable,
+	A."Warehouse",
+	A."ItemCode",
+	A."Dscription",
+	A."InQty",
+	A."OutQty",
+	A."Currency",
+	Abs(A."TransValue") As TransValue	
+From ORIN C  -- cabecera de la venta (LV MALL)
+Inner Join RIN1  D  -- lineas de la venta
+ON C."DocEntry" = D."DocEntry"
+Inner Join OINM A
+ON A."CreatedBy" = D."DocEntry" And A."DocLineNum" = D."LineNum"
+Inner Join OACT CC -- Cuentas contables
+ON D."AcctCode" = CC."AcctCode"
+Where C."DocDate" between '2017-01-01' And '2017-01-31' 
+and A."TransType"=14 -- Facturas 
+Order By "U_NROAUTOR", "NumAtCard"
 
 
 
