@@ -1,66 +1,67 @@
-## Tablas de transacciones 
+## TOC
 
-(Generan movimiento en OINM)
-
-|Tabla | Nombre                           |Transtype                             | Tabla de filas                     |
-|------|----------------------------------|--------------------------------------|------------------------------------|
-|[OINM]|Diario de almacen                 |INM **58** - Inventory match          |                                    |
-|[OINV]|Facturas deudores (ventas MV)     |INV **13** - Invoices                 |INV1 facturas deudores lineas       |
-|[ORIN]|Anulacion de facturas(MV)         |RIN **14** - Revert Invoices          |RIN1 anulacion de facturas linea    |
-|[OPDN]|Entrada de mercancías AP(Import.) |PDN **20** - Purchase Delivery Notes  |PDN1 pedido de entrada de mercancias|
-|[OIGN]|Entrada de mercancías             |IGN **59** - Inventory General Entry  |IGN1                                |
-|[OIGE]|Salida de mercancías              |IGE **60** - Inventory General Exit   |IGE1 Entrada de mercancias lineas   |
-|[OWTR]|Traslado de stock                 |WTR **67** - Warehouses Transfers     |WTR1 traslado de stock              |
-|[OIPF]|Costos de importación             |IPF 69 - Import file                  |IPF1 Precios de entrega             |
-
-* [Otras tablas](#otras-tablas)
-* [Tablas maestras](#tablas-maestras) 
-* [Queries](#queries) 
-   *  [Mall Ventura](#mall-ventura) 
+* [TABLAS](#tablas)
+   * [OINM](#oinm)
+   * [OINV](#oinv)
+   * [ORIN](#orin)
+   * [OPDN](#opdn)
+   * [OIGN](#oign)
+   * [OIGE](#oige)
+   * [OWTR](#owtr)
+   * [OIPF](#oipf)
+* [OTRAS TABLAS](#otras-tablas) 
+* [CONSULTAS](#consultas) 
+   * [Salidas por venta MV: TransType 13](#salidas)
+   * [Devolucion de Stock : TransType 14](#devolucion)
+   * [Entrada de Stock : TransType 59](#salidas)
+   * [Salidas de Stock : TransType 60](#salidas)
+   * [Traspasos de Stock : TransType 67](#salidas)
+   * [Libro Ventas Mall Ventura](#salidas)
+   * [Mall Ventura](#mall-ventura) 
 * [Tipos de documentos](#tipos-de-documentos) 
 
-
-###     OINM
+##  TABLAS 
+####     OINM - Object Type 58
 [volver](tablas-de-transacciones)
- Whse Journal -    Diario de almacen (stock movement table)
+ Whse Journal - Diario de almacen (stock movement table)
     Transtype (object type):
       INM 58 - Inventory match
 
 Table field: Transtype
        Values: 
-    *  13     A/R Invoice  
-    *  14     A/R Credit Memo  
-    *  20     Goods Receipt PO  
+    *  13     A/R Invoice
+    *  14     A/R Credit Memo
+    *  20     Goods Receipt PO
     *  59     Goods Receipt 
     *  60     Goods Issue 
-    *  67     Inventory Transfers  
-    *  69    Landed Costs  
-    *  162    Inventory Valuation  
+    *  67     Inventory Transfers
+    *  69    Landed Costs
+    *  162    Inventory Valuation
 
-###     OINV
-[volver](#tablas-de-transacciones)   
-__(oInvoice) (ventas) Facturas deudores__
-    Transtype (object type):  
-        INV **13** - Invoices
-    * __INV1 Facturas deudores - lineas__
+####     OINV - salida por ventas - Object Type 13
+[volver](#tablas-de-transacciones) 
+  *  (oInvoice) (ventas) Facturas deudores
+  *  Transtype (object type):
+  *  INV **13** - Invoices
+  *  INV1 Facturas deudores - lineas
 
-###     ORIN
-[volver](#tablas-de-transacciones)   
-__(oCreditNote) Nota de crédito de clientes (Anulacion de facturas)__ 
+####     ORIN - Notas de crédito - Object Type 14
+[volver](#tablas-de-transacciones) 
+(oCreditNote) Nota de crédito de clientes (Anulacion de facturas)
       Transtype (object type):
-        RIN **14** - Revert Invoices
-    * __RIN1 Anulacion de facturas Linea__  
+        RIN 14 - Revert Invoices
+    * RIN1 Anulacion de facturas Linea
 
-###     OPDN
-[volver](#tablas-de-transacciones)   
-__(oPurchaseDeliveryNotes)  Entrada de mercancías__ 
-      Transtype (object type):  
-         PDN **20** - Purchase Delivery Notes
-     * __PDN1    Pedido de entrada de mercancías - Filas__  
-   Related to **OPCH**  
+####     OPDN - Entrada de mercancias por compra - Object Type 20
+[volver](#tablas-de-transacciones) 
+(oPurchaseDeliveryNotes)  Entrada de mercancías 
+      Transtype (object type):
+         PDN 20 - Purchase Delivery Notes
+     * PDN1    Pedido de entrada de mercancías - Filas
+   Related to OPCH
 
-###     OIGN
-[volver](#tablas-de-transacciones)   
+####     OIGN - Entrada por movimientos - Object Type 59
+[volver](#tablas-de-transacciones) 
 (oInvetoryGenEntry) Entrada de mercancías
      A goods receipt in the Warehouse Management system (WMS) 
      is the physical inbound movement of goods or materials into the warehouse. 
@@ -70,45 +71,40 @@ __(oPurchaseDeliveryNotes)  Entrada de mercancías__
 
       Transtype (object type):
         IGN **59** - Inventory General Entry
-     *  IGN1    Entrada de mercancías: Líneas  
+     *  IGN1    Entrada de mercancías: Líneas
 
-###     OIGE
-[volver](#tablas-de-transacciones)   
-__( oInvetoryGenExit ) Salida de mercancias__   
+####     OIGE - Salida de mercancias - Object type 60
+[volver](#tablas-de-transacciones) 
+( oInvetoryGenExit ) Salida de mercancias 
     A goods issuefrom Extended Warehouse Management (EWM) is a physical departure 
     of products from your warehouse. 
     With a goods issue posting, you reduce the stock in the warehouse. 
     You can use a goods issue to indicate goods deliveries to your customers.
 
-    Transtype (object type):  
+    Transtype (object type):
       IGE **60** - Inventory General Exit
-    * __IGE1    Salida de mercancias - Lineas__
+    * IGE1    Salida de mercancias - Lineas
 
-###     OWTR
-[volver](#tablas-de-transacciones)   
-  __Traslado de stocks__  
+####     OWTR - Traslado de Stock - Object Type 67
+[volver](#tablas-de-transacciones) 
+  Traslado de stocks
     You use this function to transfer inventory from one warehouse to another.
 
-    Transtype (object type):  
+    Transtype (object type):
         WTR **67** - Warehouses Transfers
-    *  __WTR1    Traslado de stocks - Filas__
-       
-###     OIPF
-[volver](#tablas-de-transacciones)   
-   __Costos de importación__  
+    *  WTR1    Traslado de stocks - Filas
+     
+####     OIPF - Costos de importación - Object Type 69
+[volver](#tablas-de-transacciones) 
+   Costos de importación
     Transtype (object type):
         IPF 69 - Import file
-    *  __IPF1    Precios de entrega - Líneas__
+    *  IPF1    Precios de entrega - Líneas
 
 
-## otras tablas
-[volver](#tablas-de-transacciones)   
 
-*  __OPCH  Facturas de proveedores__  
-   * PCH1  Factura de acreedor linea
-
-## Tablas maestras
-[volver](#tablas-de-transacciones)   
+## Otras Tablas
+[volver](#tablas-de-transacciones)
 
 ```SQL
 
@@ -125,19 +121,17 @@ SELECT * FROM OHEM
 SELECT * FROM ORCT
 
 ```
-
-
 ## CONSULTAS 
 
-###     Salidas por venta MV: TransType 13    
+###         Salidas por venta MV: TransType 13  
 
 ```SQL
-        Select  
-                           C."DocNum",
-                           C."U_ESTADOFC" As ESTADO,
+        Select
+                        C."DocNum",
+                        C."U_ESTADOFC" As ESTADO,
                         C."U_NROAUTOR" As NumeroAutorizacion,
                         C."NumAtCard" As NumeroFactura, 
-                        C."U_CODCTRL",                  
+                        C."U_CODCTRL",                
                         C."DocDate" As Fecha,
                         CC."ActId" As CuentaContable,
                         CC."AcctName" As NombreCuentaContable,
@@ -148,7 +142,7 @@ SELECT * FROM ORCT
                         A."OutQty",
                         A."Currency",
                         A."CalcPrice" as COSTO_UNITARIO,
-                        Abs(A."TransValue") As TransValue    
+                        Abs(A."TransValue") As TransValue  
         From            OINV C  -- cabecera de la venta (LV MALL)
         Inner Join      INV1  D  -- lineas de la venta
         ON              C."DocEntry" = D."DocEntry"
@@ -158,13 +152,13 @@ SELECT * FROM ORCT
         ON              D."AcctCode" = CC."AcctCode"
         Where           C."DocDate" between '2017-01-01' And '2017-01-31' 
         and             A."TransType"=13 -- Facturas de venta del mall ventura 
-        
+      
         Order By        "U_NROAUTOR", "NumAtCard"
 ```
-###     Devolucion de Stock : TransType 14      ###
+###         Devolucion de Stock Nota de crédito : TransType 14
 
 ```SQL
-        Select  
+        Select
                         C."U_NROAUTOR" As NumeroAutorizacion,
                         C."NumAtCard" As NumeroFactura, 
                         C."U_CODCTRL",
@@ -180,23 +174,24 @@ SELECT * FROM ORCT
                         A."InQty",
                         A."OutQty",
                         A."Currency",
-                        Abs(A."TransValue") As TransValue    
+                        Abs(A."TransValue") As TransValue  
         From            ORIN C  -- cabecera de la nota de credito (LV MALL)
         Inner Join      RIN1  D  -- lineas de la nota de credito
         ON              C."DocEntry" = D."DocEntry"
         Inner Join      OINM A
-        ON              A."CreatedBy" = D."DocEntry" And A."DocLineNum" = D."LineNum"
+        ON              A."CreatedBy" = D."DocEntry" 
+        And             A."DocLineNum" = D."LineNum"
         Inner Join      OACT CC -- Cuentas contables
         ON              D."AcctCode" = CC."AcctCode"
         Where           C."DocDate" between '2017-01-01' And '2017-01-31' 
         and             A."TransType"=14 -- Facturas 
         Order By        "U_NROAUTOR", "NumAtCard"
 ```
-###     Entrada de Stock : TransType 59
+###         Entrada de Stock : TransType 59
 
 ```SQL
-        Select  
-            
+        Select
+          
                         C."DocNum",
                         D."DocEntry",
                         C."Comments",
@@ -216,7 +211,8 @@ SELECT * FROM ORCT
         Inner Join      IGN1  D  -- lineas de la Entrada de mercancias
         ON              C."DocEntry" = D."DocEntry"
         Inner Join      OINM A  --- DIARIO DE ALMACENCES...
-        ON              A."CreatedBy" = D."DocEntry" And A."DocLineNum" = D."LineNum"
+        ON              A."CreatedBy" = D."DocEntry" 
+        And             A."DocLineNum" = D."LineNum"
         Inner           Join OACT CC -- Cuentas contables
         ON              D."AcctCode" = CC."AcctCode"
         Where           C."DocDate" between '2017-01-01' And '2017-01-31' 
@@ -224,10 +220,10 @@ SELECT * FROM ORCT
         And             "Warehouse" = 'AMVEN'
 ```
 
-###     Salidas de Stock : TransType 60
+###         Salidas de Stock : TransType 60
 ```SQL
-    
-    Select  
+  
+    Select
                         T0."BASE_REF" As DOCUMENTO,
                         T0."DocLineNum" As LINEA,
                         T0."Warehouse" As ALMACEN,
@@ -245,19 +241,14 @@ SELECT * FROM ORCT
         from            OINM T0
         Inner Join      OACT T1
         On              T0."CardCode" = T1."AcctCode"
-        Where           T0."DocDate"  
+        Where           T0."DocDate"
                         Between '2017-01-01' And '2017-03-29'
-                        And T0."TransType" = 60
-                        And T1."Segment_0" =  '5230701' 
+        And             T0."TransType" = 60
+        And             T1."Segment_0" =  '5230701' 
        Order by        "BASE_REF", "DocLineNum", "ActId"
-  
+
 ```
-
-
-
-
-
-###     Traspasos de Stock : TransType 67
+###         Traspasos de Stock : TransType 67
 ```SQL
 
         Select 
@@ -277,15 +268,17 @@ SELECT * FROM ORCT
         Inner           Join WTR1 T2
         ON              T0."DocEntry" = T2."DocEntry" 
         Inner Join      OINM T1
-        ON              T0."DocNum" = T1."BASE_REF" And T1."InQty" = 0 --- SALIDAS
-        And             T1."CreatedBy" = T2."DocEntry" and T1."DocLineNum" = T2."LineNum"  -- 
+        ON              T0."DocNum" = T1."BASE_REF" 
+        And             T1."InQty" = 0 --- SALIDAS
+        And             T1."CreatedBy" = T2."DocEntry" 
+        And             T1."DocLineNum" = T2."LineNum"  -- 
         Where           T1."TransType" = 67
         And             (T2."FromWhsCod" = 'AMVEN' or T2."WhsCode" = 'AMVEN')
 
 
 ```
 
-###     Libro Ventas Mall Ventura
+###         Libro Ventas Mall Ventura
 ```SQL
         Select 
                         T0."NumAtCard" As NumeroFactura, 
@@ -304,13 +297,13 @@ SELECT * FROM ORCT
 ```
 
 ## Tipos de documentos
-[volver](#tablas-de-transacciones)   
+[volver](#tablas-de-transacciones) 
 
-*  __IM :  Traspasos__
-*  __OA :  Salidas de materiales__
-*  __DI :  Precios de entrega para costos__
-*  __RF :  Facturas del Mall Ventura__
-*  __EP :  Entrada de materiales__
-*  __RC :  Notas de crédito, anulacion de facturas Mall Ventura__
+*  IM :  Traspasos
+*  OA :  Salidas de materiales
+*  DI :  Precios de entrega para costos
+*  RF :  Facturas del Mall Ventura
+*  EP :  Entrada de materiales
+*  RC :  Notas de crédito, anulacion de facturas Mall Ventura
 
 
