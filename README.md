@@ -22,7 +22,7 @@
 
 ##  TABLAS 
 ####     OINM - Object Type 58
-[volver](tablas-de-transacciones)
+[volver](#toc)
  Whse Journal - Diario de almacen (stock movement table)
     Transtype (object type):
       INM 58 - Inventory match
@@ -39,21 +39,21 @@ Table field: Transtype
     *  162    Inventory Valuation
 
 ####     OINV - salida por ventas - Object Type 13
-[volver](#tablas-de-transacciones) 
+[volver](#toc) 
   *  (oInvoice) (ventas) Facturas deudores
   *  Transtype (object type):
   *  INV **13** - Invoices
   *  INV1 Facturas deudores - lineas
 
 ####     ORIN - Notas de crédito - Object Type 14
-[volver](#tablas-de-transacciones) 
+[volver](#toc) 
 (oCreditNote) Nota de crédito de clientes (Anulacion de facturas)
       Transtype (object type):
         RIN 14 - Revert Invoices
     * RIN1 Anulacion de facturas Linea
 
 ####     OPDN - Entrada de mercancias por compra - Object Type 20
-[volver](#tablas-de-transacciones) 
+[volver](#toc) 
 (oPurchaseDeliveryNotes)  Entrada de mercancías 
       Transtype (object type):
          PDN 20 - Purchase Delivery Notes
@@ -61,7 +61,7 @@ Table field: Transtype
    Related to OPCH
 
 ####     OIGN - Entrada por movimientos - Object Type 59
-[volver](#tablas-de-transacciones) 
+[volver](#toc) 
 (oInvetoryGenEntry) Entrada de mercancías
      A goods receipt in the Warehouse Management system (WMS) 
      is the physical inbound movement of goods or materials into the warehouse. 
@@ -74,7 +74,7 @@ Table field: Transtype
      *  IGN1    Entrada de mercancías: Líneas
 
 ####     OIGE - Salida de mercancias - Object type 60
-[volver](#tablas-de-transacciones) 
+[volver](#toc) 
 ( oInvetoryGenExit ) Salida de mercancias 
     A goods issuefrom Extended Warehouse Management (EWM) is a physical departure 
     of products from your warehouse. 
@@ -86,7 +86,7 @@ Table field: Transtype
     * IGE1    Salida de mercancias - Lineas
 
 ####     OWTR - Traslado de Stock - Object Type 67
-[volver](#tablas-de-transacciones) 
+[volver](#toc) 
   Traslado de stocks
     You use this function to transfer inventory from one warehouse to another.
 
@@ -95,7 +95,7 @@ Table field: Transtype
     *  WTR1    Traslado de stocks - Filas
      
 ####     OIPF - Costos de importación - Object Type 69
-[volver](#tablas-de-transacciones) 
+[volver](#toc) 
    Costos de importación
     Transtype (object type):
         IPF 69 - Import file
@@ -104,7 +104,7 @@ Table field: Transtype
 
 
 ## Otras Tablas
-[volver](#tablas-de-transacciones)
+[volver](#toc)
 
 ```SQL
 
@@ -297,7 +297,7 @@ SELECT * FROM ORCT
 ```
 
 ## Tipos de documentos
-[volver](#tablas-de-transacciones) 
+[volver](#toc) 
 
 *  IM :  Traspasos
 *  OA :  Salidas de materiales
