@@ -35,7 +35,7 @@ Table field: Transtype
     *  59     Goods Receipt 
     *  60     Goods Issue 
     *  67     Traspaso de inventario Tipo documento IM
-    *  69     Landed Costs
+  Query   *  69     Landed Costs
     *  162    Inventory Valuation
 
 ####     OINV - salida por ventas MV Tipo 13
@@ -48,22 +48,29 @@ Table field: Transtype
 ![Imagen de Ventas](images/Compras.PNG)
 
 ```SQL
+--- SALIDAS POR VENTA MALL VENTURA TIPO 13
  Select
-                        Cast(C."DocNum" as Varchar(10)) AS DOCNUM,
+                        
                         C."U_ESTADOFC" As ESTADO,
                         C."U_NROAUTOR" As NumeroAutorizacion,
                         C."NumAtCard" As NumeroFactura, 
-                        C."U_CODCTRL",                
+                        C."U_CODCTRL",     
+                        Cast(C."DocNum" as Varchar(10)) AS "DocNum",    
+                        "LineNum",
+                        '' As "PedidoGera",
+                        '' As "Comments",
+                        C."JrnlMemo",  
+                         A."Warehouse" As ORIGEN,
+                         '' As Destino,     
                         TO_CHAR(C."DocDate", 'dd/mm/yyyy') As Fecha,
                         CC."ActId" As CuentaContable,
-                        CC."AcctName" As NombreCuentaContable,
-                        A."Warehouse" As ALMACEN,
+                        CC."AcctName" As NombreCuentaContable,                       
                         A."ItemCode",
                         A."Dscription",
                         A."InQty",
                         A."OutQty",
-                        A."Currency",
-                        A."CalcPrice" as COSTO_UNITARIO,
+                        --A."Currency",
+                        --A."CalcPrice" as COSTO_UNITARIO,
                         Abs(A."TransValue") As TransValue  
         From            OINV C  -- cabecera de la venta (LV MALL)
         Inner Join      INV1  D  -- lineas de la venta
@@ -74,9 +81,15 @@ Table field: Transtype
         ON              D."AcctCode" = CC."AcctCode"
         Where           C."DocDate" between '2017-03-01' And '2017-03-31' 
         and             A."TransType"=13 -- Facturas de venta del mall ventura 
-        Order By        "U_NROAUTOR", "NumAtCard"
+        Order By        "U_NROAUTOR", Cast("NumAtCard" as int), C."DocDate"
+--- TOTALES VENTAS MALL VENTURA TIPO 13
 
-
+Select
+                        Count(*) As Cantidad,
+                        Sum(Abs(A."TransValue")) As TransValue  
+        From            OINM A
+        Where           A."DocDate" between '2017-03-01' And '2017-03-31' 
+        and             A."TransType"=13 -- Facturas de venta del mall ventura 
 
 ```
 
@@ -88,6 +101,7 @@ Table field: Transtype
     * RIN1 Anulacion de facturas Linea
 
 ```SQL
+--- NOTAS DE CREDITO MALL VENTURA TIPO 14
 Select
                 Cast(C."DocNum" as Varchar(20)) As DOCNUM,
                 C."U_NROAUTOR" As NumeroAutorizacion,
@@ -105,8 +119,8 @@ Select
                 A."InQty",
                 A."OutQty",
                 A."Currency",
-                A."CalcPrice" As COSTO_UNITARIO,
-                Abs(A."TransValue") As TransValue  
+                --A."CalcPrice" As COSTO_UNITARIO,
+                Abs(A."TransValue") As Valor  
 From            ORIN C  -- cabecera de la nota de credito (LV MALL)
 Inner Join      RIN1  D  -- lineas de la nota de credito
 ON              C."DocEntry" = D."DocEntry"
@@ -116,7 +130,7 @@ And             A."DocLineNum" = D."LineNum"
 Inner Join      OACT CC -- Cuentas contables
 ON              D."AcctCode" = CC."AcctCode"
 Where           C."DocDate" between '2017-01-01' And '2017-01-31' 
-and             A."TransType"=14 -- Facturas 
+and             A."TransType"=14 -- Notas de credito 
 Order By        "U_NROAUTOR", "NumAtCard"
 ```
 
@@ -132,34 +146,44 @@ Order By        "U_NROAUTOR", "NumAtCard"
 ![Imagen de Compras en el SAP B1](images/Compras.PNG)
 
 ```SQL
+--- ENTRADA POR COMPRAS TIPO 20
 Select 
                         Cast(T0."BASE_REF" As Varchar(10)) As DOCNUM,
                         T0."DocLineNum",
-                        Cast(T0."DocDate" As Date) As FechaContabilizacion,
-                        T0."Warehouse",
-                        T1."ActId",
-						T1."AcctName",
+                        '' as "PedidoGera",                        
                         T0."Comments",
                         T0."JrnlMemo",                      
-                        T0."CardCode" As CODIGO_PROVEEDOR,
-                        T0."CardName" As NOMBRE_PROVEEDOR,
+                        '' As "Origen",
+                        T0."Warehouse"as "Destino",
+                        TO_CHAR(T0."DocDate", 'dd/mm/yyyy') As Fecha,
+                        T1."ActId" As "CuentaContable",
+						T1."AcctName" As "NombreCuentaContable",                                 
+                        --T0."CardCode" As CODIGO_PROVEEDOR,
+                        --T0."CardName" As NOMBRE_PROVEEDOR,
                         T0."ItemCode",
-                        T0."Dscription",
+                        T0."Dscription",                        
                         T0."InQty", 
                         T0."OutQty",
-                        T0."Currency",
-                        T0."CalcPrice" as PRECIO_UNITARIO,
+                        --T0."Currency",
+                        --T0."CalcPrice" as PRECIO_UNITARIO,
                         Abs(T0."TransValue") As VALOR
         from            OINM T0 
         Inner Join 		OACT T1
         ON				T0."InvntAct" = T1."AcctCode"
         Where			T0."TransType" = 20 ---COMPRAS
-        And 			T0."DocDate" Between '2017-01-01' And '2017-01-31'
+        And 			T0."DocDate" Between '2017-03-01' And '2017-03-31'
         Order By		T0."BASE_REF", T0."DocLineNum"
 
+        --- TOTALES COMPRAS  TIPO 20
+Select 
+                        Count(*)  As Cantidad,
+                        sum(Abs(T0."TransValue")) As VALOR
+        from            OINM T0
+        Where			T0."TransType" = 20 ---COMPRAS
+        And 			T0."DocDate" Between '2017-03-01' And '2017-03-31'
 ```
 
-###     OJDT Entrada de Diario (Asiento contable) Object Type 30
+####     OJDT Entrada de Diario (Asiento contable) Object Type 30
 
 
 
@@ -180,24 +204,25 @@ Select
 
 
 ```SQL
--- Entradas al CD
+-- Entradas AL INVENTARIO TIPO 59
 Select
-          
                         C."DocNum",
                         --D."DocEntry",
-                        D."LineNum",
+                        D."LineNum" As "DocLineNum",
+                        '' As "PedidoGera",
                         C."Comments",
                         C."JrnlMemo",
-                        C."DocDate" As Fecha,
+                        '' As "Origen",
+                        A."Warehouse" As "Destino",                                                
+                        TO_CHAR(C."DocDate", 'dd/mm/yyyy') As Fecha,                        
                         CC."ActId" As CuentaContable,
                         CC."AcctName" As NombreCuentaContable,
-                        A."Warehouse",
                         A."ItemCode",
                         A."Dscription",
                         A."InQty",
                         A."OutQty",
-                        A."Currency",
-                        A."CalcPrice" As PRECIO_UNITARIO,
+                        --A."Currency",
+                        --A."CalcPrice" As PRECIO_UNITARIO,
                         Abs(A."TransValue") As VALOR
         From            OIGN C  -- Cabecera Entrada de Mercancias
         Inner Join      IGN1  D  -- lineas de la Entrada de mercancias
@@ -207,44 +232,20 @@ Select
         And             A."DocLineNum" = D."LineNum"
         Inner           Join OACT CC -- Cuentas contables
         ON              D."AcctCode" = CC."AcctCode"
-        Where           C."DocDate" between '2017-01-01' And '2017-01-31' 
+        Where           C."DocDate" between '2017-02-01' And '2017-02-28' 
         and             A."TransType"=59 -- Entradas  
-        And             "Warehouse" <> 'AMVEN'
+        --And             "Warehouse" <> 'AMVEN'
+        And             "Warehouse" = 'AMVEN' -- Mall Ventura
         Order By		C."DocNum", D."LineNum"
 
-
--- Entradas al Mall Ventura:
-
-   Select
-          
-                        C."DocNum",
-                        D."DocEntry",
-                        C."Comments",
-                        C."JrnlMemo",
-                        C."DocDate" As Fecha,
-                        CC."ActId" As CuentaContable,
-                        CC."AcctName" As NombreCuentaContable,
-                        A."Warehouse",
-                        A."ItemCode",
-                        A."Dscription",
-                        A."InQty",
-                        A."OutQty",
-                        A."Currency",
-                        A."CalcPrice" As PRECIO_UNITARIO,
-                        Abs(A."TransValue") As VALOR
-        From            OIGN C  -- Cabecera Entrada de Mercancias
-        Inner Join      IGN1  D  -- lineas de la Entrada de mercancias
-        ON              C."DocEntry" = D."DocEntry"
-        Inner Join      OINM A  --- DIARIO DE ALMACENCES...
-        ON              A."CreatedBy" = D."DocEntry" 
-        And             A."DocLineNum" = D."LineNum"
-        Inner           Join OACT CC -- Cuentas contables
-        ON              D."AcctCode" = CC."AcctCode"
-        Where           C."DocDate" between '2017-01-01' And '2017-01-31' 
-        and             A."TransType"=59 -- Facturas 
-        And             "Warehouse" = 'AMVEN'
-
-
+-- TOTALES ENTRADAS TIPO 59
+Select
+						Count(*) As Cantidad,
+          				Sum(Abs(A."TransValue")) As VALOR
+        From            OINM A         
+        Where           A."DocDate" between '2017-03-01' And '2017-03-31' 
+        and             A."TransType"=59 -- Entradas  
+        And             "Warehouse" <> 'AMVEN' -- Mall Ventura
 
 ```
 
@@ -261,46 +262,23 @@ Select
     * IGE1    Salida de mercancias - Lineas
 
 ```SQL
-
- Select
-                        Cast(T0."BASE_REF" As Varchar(20)) As DOCUMENTO,
-                        T0."DocLineNum" As LINEA,
-                        T0."Warehouse" As ALMACEN,
-                        T1."ActId" AS CUENTA_CONTABLE,
-                        T1."AcctName" AS NOMBRE_CUENTA_CONTABLE,
-                        Cast(T0."DocDate" As Date) As FECHA_DOC,
-                        T0."Comments",
-                        T0."JrnlMemo",
-                        T0."ItemCode",
-                        T0."Dscription",
-                        T0."InQty",
-                        T0."OutQty",
-                        T0."CalcPrice" As COSTO_UNITARIO,
-                        abs(T0."TransValue") as VALOR 
-        from            OINM T0
-        Inner Join      OACT T1
-        On              T0."CardCode" = T1."AcctCode"
-        Where           T0."DocDate"
-                        Between '2017-01-01' And '2017-01-30'
-        And             T0."TransType" = 60 -- SALIDAS
-        And             T0."Warehouse" = 'AMVEN'
-       Order by        "BASE_REF", "DocLineNum", "ActId"
-
- Select
-                        Cast(T0."BASE_REF" As Varchar(20)) As DOCUMENTO,
+--- SALIDAS DE MERCANCIAS TIPO 60
+Select 
+                        Cast(T0."BASE_REF" As Varchar(20)) As "DocNum",                       
+                        T0."DocLineNum",
                         T2."U_NPedidoGera" AS PEDIDOGERA,
-                        T0."DocLineNum" As LINEA,
-                        T0."Warehouse" As ALMACEN,
+                        T0."Comments",
+                        T0."JrnlMemo",                        
+                        T0."Warehouse" As "Origen",
+                        '' As "Destino",
+                        TO_CHAR(T0."DocDate", 'dd/mm/yyyy') As Fecha,  
                         T1."ActId" AS CUENTA_CONTABLE,
                         T1."AcctName" AS NOMBRE_CUENTA_CONTABLE,
-                        Cast(T0."DocDate" As Date) As FECHA_DOC,
-                        T0."Comments",
-                        T0."JrnlMemo",
                         T0."ItemCode",
                         T0."Dscription",
                         T0."InQty",
                         T0."OutQty",
-                        T0."CalcPrice" As COSTO_UNITARIO,
+                        --T0."CalcPrice" As COSTO_UNITARIO,
                         abs(T0."TransValue") as VALOR 
         from            OINM T0
         Inner Join      OACT T1
@@ -309,13 +287,29 @@ Select
         On				T0."CreatedBy" = T2."DocEntry"
         And				T0."DocLineNum" = T2."LineNum"
         Where           T0."DocDate"
-        Between         '2017-02-01' And '2017-02-28'
+        Between         '2017-03-01' And '2017-03-31'
         And             T0."TransType" = 60 -- SALIDAS
         And             T0."Warehouse" <> 'AMVEN'
-		Order by        "BASE_REF", "DocLineNum", "ActId"  
+		Order by        T0."DocDate", "BASE_REF", "DocLineNum" 
+
+--- SUMA DEL VALOR DE LAS SALIDAS POR MES
+ Select                 Count(*) as Cantidad, 
+                        Sum(abs(T0."TransValue")) as VALOR 
+        from            OINM T0        
+        Where           T0."DocDate"
+        Between         '2017-03-01' And '2017-03-31'
+        And             T0."TransType" = 60 -- SALIDAS
+        And             T0."Warehouse" <> 'AMVEN'
+
+ALOR 
 
 
-```
+31'
+IDAS
+
+		
+		
+		```
 
 ####     OWTR - Traslado de Stock - Object Type 67
 [volver](#toc) 
@@ -328,35 +322,55 @@ Select
 
 ```SQL
 
-
+--- TRASPASOS DE MERCANCIA TIPO 67
 Select 
                         Cast((T0."DocNum") As Varchar(10)) As DOCNUM,
                         T1."DocLineNum",
+                        '' As "PedidoGera",
                         T0."Comments",
                         T0."JrnlMemo",
                         --Cast(T0."DocEntry" as Varchar(10)) As DOCENTRY, 
                         T2."FromWhsCod" As Origen, 
-                        T2."WhsCode" As Destino, 
-                        Cast(T0."DocDate" As Date) As FechaContabilizacion,
+                        T2."WhsCode" As Destino,
+                        TO_CHAR(T0."DocDate", 'dd/mm/yyyy') As Fecha, 
+                        '' As "CuentaContable",
+                        '' as "NombreCuentaContable", 
                         T1."ItemCode",
                         T1."Dscription",
-                        T1."OutQty" as Cantidad,
-                        T1."CalcPrice" As COSTO_UNITARIO,
-                        Abs(T1."TransValue") As Transvalue
+                        T1."OutQty" As "InQty",
+                        T1."OutQty" ,
+                        --T1."CalcPrice" As COSTO_UNITARIO,
+                        Abs(T1."TransValue") As Valor
 from                    OWTR T0 
 Inner Join              WTR1 T2
 ON                      T0."DocEntry" = T2."DocEntry" 
 Inner Join              OINM T1
 ON                      T0."DocNum" = T1."BASE_REF" 
-And                     T1."InQty" = 0 --- SALIDAS
+And                     T1."InQty" = 0 
 And                     T1."CreatedBy" = T2."DocEntry" 
-And                     T1."DocLineNum" = T2."LineNum"  -- 
-Where                   T1."TransType" = 67
+And                     T1."DocLineNum" = T2."LineNum"   
+Where                   T1."TransType" = 67 -- Traspasos
 And 			        T0."DocDate" between '2017-02-01' And '2017-02-28'
 And                     (T2."FromWhsCod" = 'AMVEN' or T2."WhsCode" = 'AMVEN') -- Mall Ventura
 --And                     (T2."FromWhsCod" <> 'AMVEN' And T2."WhsCode" <> 'AMVEN') -- Resto
 Order By		        T0."DocNum", T1."DocLineNum"
 
+--- TOTALES TRASPASOS TIPO 67
+Select 
+                        Count(*) As Cantidad,
+                        Sum(Abs(T1."TransValue")) As Valor
+from                    OWTR T0 
+Inner Join              WTR1 T2
+ON                      T0."DocEntry" = T2."DocEntry" 
+Inner Join              OINM T1
+ON                      T0."DocNum" = T1."BASE_REF" 
+And                     T1."InQty" = 0 
+And                     T1."CreatedBy" = T2."DocEntry" 
+And                     T1."DocLineNum" = T2."LineNum"   
+Where                   T1."TransType" = 67 -- Traspasos
+And 			        T0."DocDate" between '2017-03-01' And '2017-03-31'
+--And                     (T2."FromWhsCod" = 'AMVEN' or T2."WhsCode" = 'AMVEN') -- Mall Ventura
+And                     (T2."FromWhsCod" <> 'AMVEN' And T2."WhsCode" <> 'AMVEN') -- Resto
 
 ```
 
@@ -422,3 +436,100 @@ SELECT * FROM ORCT
 *  RC :  Notas de crédito, anulacion de facturas Mall Ventura
 
 
+## Comparacion de Ventas Belmonte con SAP
+### Query Asientos de Ventas Belmonte
+```SQL
+Declare @Fecha Date = '01/11/2016'
+
+
+Declare @Ges int = year(@Fecha)
+Declare @Mes int = month(@Fecha)
+Declare @Ofic int = 3 --- LPZ
+--Declare @Ofic int = 2 --- CBB
+--Declare @Ofic int = 1 --- SCZ
+
+Declare @T Table(Fecha Date, TC decimal(10,2), Venta Decimal(10,2), Intereses Decimal(10,2), IdGlo Int, siCont smallint)
+Insert into @T
+Exec bSelContVentasDia @Ges, @Mes, @Ofic, 'C'
+
+Declare @R table(Fecha Date, Grupo int, Cuenta Varchar(100), NombreCuenta Varchar(100), Debe Decimal(10,2), Haber Decimal(10,2))
+
+Insert Into @R
+Select  
+        Cast(G.Fecha as DATE)As Fecha, 
+        Grupo = Case When N.codNomenUsr in ('1-1-03-02-001','2-1-02-01-006') then 1 Else (
+                Case When N.CodNomenUsr in('4-1-01','4-1-02') Then 2 Else 0 End
+        ) End,
+        N.CodNomenUsr, 
+        N.Descripcion, 
+        M.DebeBs, 
+        M.HaberBs  
+From @T T
+        Inner Join bContglo G
+        ON G.IDglo = T.IdGlo
+        Inner Join bContMov M 
+        ON T.IdGlo = M.IDglo
+        Inner JOin bNomenclador N
+        ON N.CodNomen = M.Codnomen
+        Where siCont = 1 And N.IdMask = 102
+Order By M.Idglo    
+
+Declare @Asiento Table(Fecha Date, Cuenta Varchar(100), NombreCuenta Varchar(100), Debe Decimal(10,2), Haber Decimal(10,2))
+
+Insert Into @Asiento
+Select Fecha, MIN(Cuenta) As Cuenta, MIN(NombreCuenta) As NombreCuenta, SUM(Debe)As Debe, SUM(Haber)As Haber from @R
+Where Grupo = 1
+Group by Fecha, Grupo
+
+Insert Into @Asiento
+Select Fecha, MIN(Cuenta) As Cuenta, MAX(NombreCuenta) As NombreCuenta, SUM(Debe)As Debe, SUM(Haber)As Haber from @R
+Where Grupo = 2
+Group by Fecha, Grupo
+
+Insert Into @Asiento 
+Select Fecha, Cuenta, NombreCuenta, Debe, Haber From @R Where Grupo=0
+
+Select * from @Asiento 
+Order By Fecha, cuenta
+
+```
+### Query Asientos de Ventas SAP
+```SQL
+Select 
+	TO_CHAR(T0."TaxDate", 'dd/mm/yyyy') As Fecha,
+	T1."ActId",
+	T1."AcctName", 
+	SUM(T0."Debit")as DEBIT,
+	SUM(T0."Credit") as CREDIT
+	 from JDT1 T0
+Inner Join OACT T1
+ON T0."Account" = T1."AcctCode" 
+Where Cast("TaxDate" as date) between '2016-11-01' And '2016-11-30'
+And "TransType" = 30 
+And "U_NPedidoGera" is not null and "U_NPedidoGera"<>''
+And "Segment_1" = 'LPZ'
+--And "Segment_1" = 'CBB'
+--And "Segment_1" = 'SCZ'
+Group by T0."TaxDate", T1."ActId", T1."AcctName"
+Order By cast("TaxDate" as date), "ActId"
+```SQL
+### Query Cobranzas SAP
+```SQL
+Select 
+	TO_CHAR(T0."TaxDate", 'dd/mm/yyyy') As Fecha,
+	T1."ActId",
+	T1."AcctName", 
+	SUM(T0."Debit")as DEBIT,
+	SUM(T0."Credit") as CREDIT
+	 from JDT1 T0
+Inner Join OACT T1
+ON T0."Account" = T1."AcctCode" 
+Where Cast("TaxDate" as date) between '2016-11-01' And '2016-11-30'
+And "TransType" = 30 
+And "U_NPedidoGera" is  null or "U_NPedidoGera"=''
+And "Segment_1" = 'LPZ'
+--And "Segment_1" = 'CBB'
+--And "Segment_1" = 'SCZ'
+Group by T0."TaxDate", T1."ActId", T1."AcctName"
+Order By cast("TaxDate" as date), "ActId"
+```
