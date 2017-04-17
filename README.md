@@ -1,28 +1,17 @@
 ## TOC
 
-* [TABLAS](#tablas)
-   * [OINM](#oinm)
-   * [OINV](#oinv)
-   * [ORIN](#orin)
-   * [OPDN](#opdn)
-   * [OIGN](#oign)
-   * [OIGE](#oige)
-   * [OWTR](#owtr)
-   * [OIPF](#oipf)
-* [OTRAS TABLAS](#otras-tablas) 
-* [CONSULTAS](#consultas) 
-   * [Salidas por venta MV: TransType 13](#salidas)
-   * [Devolucion de Stock : TransType 14](#devolucion)
-   * [Entrada de Stock : TransType 59](#salidas)
-   * [Salidas de Stock : TransType 60](#salidas)
-   * [Traspasos de Stock : TransType 67](#salidas)
-   * [Libro Ventas Mall Ventura](#salidas)
-   * [Mall Ventura](#mall-ventura) 
-* [Tipos de documentos](#tipos-de-documentos) 
+* [OINV - salida por ventas MV Tipo 13](#oinv)
+* [ORIN Notas de cr&eacute;dito MV Tipo 14](#orin)
+* [OPDN Entrada de mercancias por compra - Object Type 20](#opdn)
+* [OIGN Entrada por movimientos - Object Type 59](#oign)
+* [OIGE Salida de mercancias - Object type 60](#oige)
+* [OWTR Traslado de Stock - Object Type 67](#owtr)
+* [OIPF Costos de importaci&oacute;n - Object Type 69](#oipf)
+* [QUERIES](#queries) 
 
 ##  TABLAS 
-####     OINM - Object Type 58
-[volver](#toc)
+####     OINM 
+#### - Object Type 58
  Whse Journal - Diario de almacen (stock movement table)
     Transtype (object type):
       INM 58 - Inventory match
@@ -38,8 +27,9 @@ Table field: Transtype
   Query   *  69     Landed Costs
     *  162    Inventory Valuation
 
-####     OINV - salida por ventas MV Tipo 13
-[volver](#toc) 
+####     OINV 
+#### - salida por ventas MV Tipo 13
+[volver](#toc)  
   *  (oInvoice) (ventas) Facturas deudores
   *  Transtype (object type): INV 13 Invoices
   *  INV1 Facturas deudores - lineas
@@ -82,6 +72,7 @@ Table field: Transtype
         Where           C."DocDate" between '2017-03-01' And '2017-03-31' 
         and             A."TransType"=13 -- Facturas de venta del mall ventura 
         Order By        "U_NROAUTOR", Cast("NumAtCard" as int), C."DocDate"
+
 --- TOTALES VENTAS MALL VENTURA TIPO 13
 
 Select
@@ -93,9 +84,10 @@ Select
 
 ```
 
-####     ORIN - Notas de crédito MV Tipo 14
-[volver](#toc) 
-(oCreditNote) Nota de crédito de clientes (Anulacion de facturas)
+####     ORIN 
+#### - Notas de cr&eacute;dito MV Tipo 14  
+[volver](#toc)   
+(oCreditNote) Nota de cr&eacute;dito de clientes (Anulacion de facturas)
       Transtype (object type):
         RIN 14 - Revert Invoices
     * RIN1 Anulacion de facturas Linea
@@ -132,15 +124,24 @@ ON              D."AcctCode" = CC."AcctCode"
 Where           C."DocDate" between '2017-01-01' And '2017-01-31' 
 and             A."TransType"=14 -- Notas de credito 
 Order By        "U_NROAUTOR", "NumAtCard"
+
+--TOTALES NOTAS DE CREDITO TIPO 14
+Select			Count(*) As Cantidad,
+                Sum(Abs(A."TransValue")) As Valor
+From            OINM A
+Where           A."DocDate" between '2017-03-01' And '2017-03-31' 
+and             A."TransType"=14 -- Notas de credito 
+
 ```
 
 
-####     OPDN - Entrada de mercancias por compra - Object Type 20
-[volver](#toc) 
-(oPurchaseDeliveryNotes)  Entrada de mercancías por compras locales 
+####     OPDN 
+#### - Entrada de mercancias por compra - Object Type 20
+[volver](#toc)  
+(oPurchaseDeliveryNotes)  Entrada de mercanc&iacute;as por compras locales 
     o importaciones.
     * Transtype (object type): PDN 20 - Purchase Delivery Notes
-    * Tabla de Filas: PDN1  Pedido de entrada de mercancías - Filas
+    * Tabla de Filas: PDN1  Pedido de entrada de mercanc&iacute;as - Filas
     * Tipo de documento: EP
 
 ![Imagen de Compras en el SAP B1](images/Compras.PNG)
@@ -183,15 +184,17 @@ Select
         And 			T0."DocDate" Between '2017-03-01' And '2017-03-31'
 ```
 
-####     OJDT Entrada de Diario (Asiento contable) Object Type 30
+####     OJDT 
+#### -Entrada de Diario (Asiento contable) Object Type 30
 
 
 
 
 
-####     OIGN - Entrada por movimientos - Object Type 59
-[volver](#toc) 
-(oInvetoryGenEntry) Entrada de mercancías
+####     OIGN 
+#### - Entrada por movimientos - Object Type 59
+[volver](#toc)  
+(oInvetoryGenEntry) Entrada de mercanc&iacute;as
      A goods receipt in the Warehouse Management system (WMS) 
      is the physical inbound movement of goods or materials into the warehouse. 
      It is a goods movement that is used to post goods received from external 
@@ -199,7 +202,7 @@ Select
      of stock in the warehouse.
 
    *  Transtype (object type):IGN 59 - Inventory General Entry
-   *  Tabla de filas: IGN1 Entrada de mercancías
+   *  Tabla de filas: IGN1 Entrada de mercanc&iacute;as
    *  Tipo de documentos: EM
 
 
@@ -249,8 +252,9 @@ Select
 
 ```
 
-####     OIGE - Salida de mercancias - Object type 60
-[volver](#toc) 
+####     OIGE 
+#### - Salida de mercancias - Object type 60  
+[volver](#toc)    
 ( oInvetoryGenExit ) Salida de mercancias 
     A goods issuefrom Extended Warehouse Management (EWM) is a physical departure 
     of products from your warehouse. 
@@ -301,18 +305,12 @@ Select
         And             T0."TransType" = 60 -- SALIDAS
         And             T0."Warehouse" <> 'AMVEN'
 
-ALOR 
-
-
-31'
-IDAS
-
 		
-		
-		```
+```
 
-####     OWTR - Traslado de Stock - Object Type 67
-[volver](#toc) 
+####     OWTR 
+#### - Traslado de Stock - Object Type 67
+[volver](#toc)   
   Traslado de stocks
     You use this function to transfer inventory from one warehouse to another.
 
@@ -350,7 +348,7 @@ And                     T1."InQty" = 0
 And                     T1."CreatedBy" = T2."DocEntry" 
 And                     T1."DocLineNum" = T2."LineNum"   
 Where                   T1."TransType" = 67 -- Traspasos
-And 			        T0."DocDate" between '2017-02-01' And '2017-02-28'
+And 			        T0."DocDate" between '2017-03-01' And '2017-03-31'
 And                     (T2."FromWhsCod" = 'AMVEN' or T2."WhsCode" = 'AMVEN') -- Mall Ventura
 --And                     (T2."FromWhsCod" <> 'AMVEN' And T2."WhsCode" <> 'AMVEN') -- Resto
 Order By		        T0."DocNum", T1."DocLineNum"
@@ -374,16 +372,17 @@ And                     (T2."FromWhsCod" <> 'AMVEN' And T2."WhsCode" <> 'AMVEN')
 
 ```
 
---44339   223571####     OIPF - Costos de importación - Object Type 69
-[volver](#toc) 
-   Costos de importación
+####     OIPF 
+#### - Costos de importaci&oacute;n - Object Type 69
+[volver](#toc)   
+   Costos de importaci&oacute;n
     Transtype (object type):
         IPF 69 - Import file
-    *  IPF1    Precios de entrega - Líneas
+    *  IPF1    Precios de entrega - L&iacute;neas
 
 
 
-OAC## Otras Tablas
+#### Otras Tablas
 [volver](#toc)
 
 ```SQL
@@ -420,12 +419,6 @@ SELECT * FROM ORCT
         Order by        T0."NumAtCard"
 ```
 
-
-
-
-
-
-
 [volver](#toc) 
 
 *  IM :  Traspasos
@@ -433,11 +426,14 @@ SELECT * FROM ORCT
 *  DI :  Precios de entrega para costos
 *  RF :  Facturas del Mall Ventura
 *  EP :  Entrada de materiales
-*  RC :  Notas de crédito, anulacion de facturas Mall Ventura
+*  RC :  Notas de cr&eacute;dito, anulacion de facturas Mall Ventura
 
 
-## Comparacion de Ventas Belmonte con SAP
-### Query Asientos de Ventas Belmonte
+## QUERIES
+[volver](#toc)
+
+#### Query Asientos de Ventas Belmonte
+
 ```SQL
 Declare @Fecha Date = '01/11/2016'
 
@@ -512,8 +508,9 @@ And "Segment_1" = 'LPZ'
 --And "Segment_1" = 'SCZ'
 Group by T0."TaxDate", T1."ActId", T1."AcctName"
 Order By cast("TaxDate" as date), "ActId"
-```SQL
+```
 ### Query Cobranzas SAP
+
 ```SQL
 Select 
 	TO_CHAR(T0."TaxDate", 'dd/mm/yyyy') As Fecha,
